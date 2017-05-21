@@ -1,5 +1,43 @@
 // --- Vars ---
 
 @blue : #2dc3e8;
+@gray : #f7f7f7;
+@w-img : "../../../static/images/";
+@img : "../../static/images/";
 
+.pd(@padding:20px){
+    padding: @padding;
+}
 
+.all{
+    height: 100%;
+    // overflow: hidden;
+}
+
+.ui-title{
+    padding: 10px 20px;
+    color: @blue;
+    background: @gray;
+    font-size: 20px;
+    p{
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 15px;
+    }
+}
+.ui-title-logo{
+    width: 30px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    &.ui-title-logo-service{
+        background: url('@{img}icon-service.png') left no-repeat;
+        background-size: 95%;
+    }
+}
+
+.ui-main{
+    height: 100%;
+    background: @gray;
+    position: relative;
+}

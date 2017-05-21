@@ -7,9 +7,10 @@ import flexible from './utils/flexible'
 import utils from './utils/utils'
 import iView from 'iview';
 
+import 'iview/dist/styles/iview.css';
 import '../src/style/reset.css';
 import '../src/style/style.less';
-import 'iview/dist/styles/iview.css';
+import '../src/style/itheme.less';
 
 Vue.config.productionTip = false
 
