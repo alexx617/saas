@@ -23,7 +23,7 @@
 					<Input v-model="value" placeholder="请输入..." style="width: 200px"></Input>
 				</li>
 				<li>
-					<Button type="primary" size="large">统计</Button>
+					<Button type="primary" size="large" @click="openMenu">统计</Button>
 				</li>
 			</ul>
 
@@ -64,16 +64,17 @@
 				</div>
 			</div>
 		</div>
-		<customer-menu></customer-menu>
+		<uimenu :menuShow='menuShow'></uimenu>
 	</div>
 </template>
 
 <script>
 const log = console.log;
-import customerMenu from './customer-menu.vue'
+import uimenu from 'widgets/menu.vue'
 export default {
 	data () {
 		return {
+			menuShow:false,
 			cityList: [
                     {
                         value: 'beijing',
@@ -158,12 +159,14 @@ export default {
 				
 		};
 	},
-	components:{customerMenu},
+	components:{uimenu},
 	created() {
 		
 	},
 	methods : {
-		
+		openMenu(){
+			this.menuShow = !this.menuShow;
+		}
 	},
 }
 

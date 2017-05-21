@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import customer from '@/components/customer'
+import customerList from '@/components/customerList'
 import home from '@/components/home'
 import talk from '@/components/talk'
-import customerMenu from '@/components/customer-menu'
+import contract from '@/components/contract'
 
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
+        path: '/customer',
         name: 'customer',
         component: customer
     },
@@ -23,9 +24,14 @@ const routes = [{
         component: talk
     },
     {
-        path: '/customerMenu',
-        name: 'customerMenu',
-        component: customerMenu
+        path: '/contract',
+        name: 'contract',
+        component: contract
+    },
+    {
+        path: '/customerList',
+        name: 'customerList',
+        component: customerList
     },
     {
         path: '*',

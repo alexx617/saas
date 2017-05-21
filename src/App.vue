@@ -4,20 +4,20 @@
 		<div class="ui-app-main">
 			<router-view></router-view>
 		</div>
-		<ui-menu></ui-menu>
+		<ui-sidebar></ui-sidebar>
 	</div>
 </template>
 
 <script>
 
 import uiHead from 'widgets/header.vue'
-import uiMenu from 'widgets/menu.vue'
+import uiSidebar from 'widgets/sidebar.vue'
 export default {
 	data () {
 		return {
 		};
 	},
-	components:{uiHead,uiMenu},
+	components:{uiHead,uiSidebar},
 	created() {
 		
 	},
