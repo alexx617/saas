@@ -3,13 +3,25 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import flexible from './utils/flexible'
+import utils from './utils/utils'
+import iView from 'iview';
+
+import '../src/style/reset.css';
+import '../src/style/style.less';
+import 'iview/dist/styles/iview.css';
 
 Vue.config.productionTip = false
 
+Vue.use(flexible);
+Vue.use(iView);
+
+Object.assign(Vue.prototype, utils);
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
 })

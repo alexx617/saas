@@ -3,8 +3,7 @@ body,
 #app {
     height: 100%;
     line-height: 1;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    ;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     overflow-x: hidden;
     -ms-text-size-adjust: none;
     -webkit-text-size-adjust: none;
