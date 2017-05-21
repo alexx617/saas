@@ -1,0 +1,35 @@
+// --- Vars ---
+
+$blue = #63b8e8;
+$yellow = #fcc31e;
+$border-radius = 6px;
+$font-color = #8d8d8d;
+$dev-width = 375px;
+$dev-height = 667px;
+$font-tip = #ccc;
+
+// --- Mixins ---
+
+// px 转 rem
+p2r($num, $base = 37.5px){
+  $num = unit($num, 'px');
+  unit($num / $base, 'rem');
+}
+
+// 自适应字体大小
+font-dpr($size) {
+  $size = unit(($size * 2), 'px');
+  font-size: ($size / 2);
+  [data-dpr="2"] & { font-size: $size; }
+  [data-dpr="3"] & { font-size: ($size * 3 / 2); }
+}
+
+// "\"或"/" 形式圆角 默认斜杠"\"
+radius-diagonal($sprit = true) {
+  if $sprit {
+    border-radius: $border-radius 0 $border-radius 0;
+  }
+  else {
+    border-radius: 0 $border-radius 0 $border-radius;
+  }
+}
