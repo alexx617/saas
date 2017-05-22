@@ -28,6 +28,7 @@ const log = console.log;
 export default {
 	data () {
 		return {
+			
 		};
 	},
 	components:{},
@@ -35,9 +36,7 @@ export default {
 		
 	},
 	methods : {
-		go(page){
-			log(page);
-		}
+		
 	},
 }
 

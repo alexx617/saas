@@ -8,36 +8,15 @@ import contract from '@/components/contract'
 
 Vue.use(VueRouter)
 
-const routes = [{
-        path: '/customer',
-        name: 'customer',
-        component: customer
-    },
-    {
-        path: '/home',
-        name: 'home',
-        component: home
-    },
-    {
-        path: '/talk',
-        name: 'talk',
-        component: talk
-    },
-    {
-        path: '/contract',
-        name: 'contract',
-        component: contract
-    },
-    {
-        path: '/customerList',
-        name: 'customerList',
-        component: customerList
-    },
-    {
-        path: '*',
-        redirect: '/'
-    }
+const routes = [
+    { path: '/', name: 'home', component: home },//首页
+    { path: '/customer', name: 'customer', component: customer },//客户
+    { path: '/customerList', name: 'customerList', component: customerList },//客户弹框
+    { path: '/talk', name: 'talk', component: talk },//洽谈
+    { path: '/contract', name: 'contract', component: contract },//合同
+    { path: '*', redirect: '/' }
 ]
+
 const router = new VueRouter({ routes });
 
 export default router;
