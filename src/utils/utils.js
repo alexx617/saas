@@ -1,4 +1,7 @@
+// 通用插件方法
+
 import router from '../router';
+
 export default {
     // 页面跳转
     $go: function(page, query) {

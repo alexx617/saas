@@ -64,7 +64,7 @@ export default {
         display: inline-block;
         min-width:80px; 
         height: 60px;
-        line-height: 4;
+        line-height: 4.5;
         text-align: center;
         cursor: pointer;
     }
