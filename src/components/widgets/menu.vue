@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../../style/style';
+@import "../../styles/style.less";
 .ui-menu-box{
     position: fixed;
     top: 0;

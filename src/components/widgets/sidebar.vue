@@ -43,8 +43,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../../style/style';
-
+@import "../../styles/style.less";
 .ui-sidebar-menu{
 	position:absolute;
 	height:100%;

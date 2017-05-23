@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang='less'>
-    @import './style/style';
+    @import 'styles/style.less';
 .ui-app-main{
 	padding-left: 80px;
 	background: @gray;

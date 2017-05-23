@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <icon-svg class="edit" icon-class='calendar'></icon-svg>
     </div>
 </template>
 
@@ -24,5 +24,9 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
+.edit{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
 </style>

@@ -173,7 +173,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../style/style';
+    @import '../styles/style.less';
 .ui-home-input{
 	background: #fff;
 	padding: 20px 20px 58px 20px;

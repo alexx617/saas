@@ -3,14 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import flexible from './utils/flexible'
-import utils from './utils/utils'
+import flexible from 'utils/flexible'
+import utils from 'utils/utils'
 import iView from 'iview';
 
 import 'iview/dist/styles/iview.css';
-import '../src/style/reset.css';
-import '../src/style/style.less';
-import '../src/style/itheme.less';
+import 'styles/reset.css';
+import 'styles/style.less';
+import 'styles/myTheme.less';
 
 Vue.config.productionTip = false
 
