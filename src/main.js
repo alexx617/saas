@@ -10,7 +10,7 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import 'styles/reset.css';
 import 'styles/style.less';
-import 'styles/myTheme.less';
+import 'styles/theme.less';
 
 Vue.config.productionTip = false
 
