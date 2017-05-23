@@ -190,7 +190,6 @@ export default {
 }
 .ui-menu-infor-app{
     background: url("@{img}icon-app.png") 95% 5% no-repeat;
-
 }
 .ui-menu-infor-Contactslist-add{
     margin-right: 35px;
