@@ -23,7 +23,7 @@
 					<Input v-model="value" placeholder="请输入..." style="width: 200px"></Input>
 				</li>
 				<li>
-					<Button type="primary" size="large" @click="openMenu">统计</Button>
+					<Button type="primary" size="large" @click="changeMenu">统计</Button>
 				</li>
 			</ul>
 
@@ -64,17 +64,18 @@
 				</div>
 			</div>
 		</div>
-		<uimenu :menuShow='menuShow'></uimenu>
+		<uimenu></uimenu>
 	</div>
 </template>
 
 <script>
 const log = console.log;
 import uimenu from 'widgets/menu.vue'
+import { mapActions } from 'vuex'
+
 export default {
 	data () {
 		return {
-			menuShow:false,
 			cityList: [
                     {
                         value: 'beijing',
@@ -164,8 +165,9 @@ export default {
 		
 	},
 	methods : {
-		openMenu(){
-			this.menuShow = !this.menuShow;
+		...mapActions(['SET_MENU']),
+		changeMenu(){
+			this.SET_MENU(true);
 		}
 	},
 }

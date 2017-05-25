@@ -6,6 +6,9 @@ import router from './router'
 import flexible from 'utils/flexible'
 import utils from 'utils/utils'
 import iView from 'iview';
+import store from 'store/store';
+
+import 'mock/index.js';
 
 import 'iview/dist/styles/iview.css';
 import 'styles/reset.css';
@@ -23,6 +26,7 @@ Object.assign(Vue.prototype, utils);
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: { App }
 })

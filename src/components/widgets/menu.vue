@@ -1,7 +1,7 @@
 <template>
    <div class="ui-menu">
         <!--<div class="ui-menu-bg"></div>-->
-        <div class="ui-menu-box" :class="menuShow ? 'ui-menu-active' : ''">
+        <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu }">
             <span @click="closeMenu" class="close"></span>
             <customer-list></customer-list>
         </div>            
@@ -11,21 +11,20 @@
 <script>
 const log = console.log;
 import customerList from '../customerList'
+import {mapState,mapActions} from 'vuex'
 export default {
-    props:['menuShow'],
     data () {
         return {
-            menuShow:false
         };
     },
     components:{customerList},
-    created() {
-        
-    },
+    computed: mapState({
+		changeMenu: state => state.doc.changeMenu,
+	}),
     methods : {
+        ...mapActions(['SET_MENU']),
         closeMenu(){
-            this.menuShow = !this.menuShow;
-            log(this.menuShow)
+            this.SET_MENU(false);
         }
     },
 }

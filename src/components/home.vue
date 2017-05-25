@@ -1,6 +1,5 @@
 <template>
     <div>
-        <icon-svg class="edit" icon-class='calendar'></icon-svg>
     </div>
 </template>
 

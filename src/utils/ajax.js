@@ -53,7 +53,7 @@ export default {
     login(data) {
         return fetch({
             method: 'post',
-            url: `123`,
+            url: `/login/`,
             data
         })
     }

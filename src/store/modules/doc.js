@@ -1,27 +1,25 @@
 import {
-    SET_RESETHEADER
+    SET_MENU
 } from '../mutation_types';
+
+const log = console.log;
 
 export default {
 
     state: {
-        header: {
-            title: 'Itaú Cartões'
-        }
+        changeMenu: false
     },
 
     mutations: {
-        [SET_RESETHEADER] (state) {
-            state.header = {
-                title: 'Itaú Cartões'
-            };
+        [SET_MENU](state, data) {
+            state.changeMenu = data;
         }
     },
 
     actions: {
-        SET_RESETHEADER ({ commit }) {
-            if (data.showHeader === undefined) { throw new Error('头部设置格式不正确'); };
-            commit(SET_RESETHEADER);
+        SET_MENU({ commit }, data) {
+            if (data === undefined) { throw new Error('未设置值'); };
+            commit(SET_MENU, data);
         }
     }
 

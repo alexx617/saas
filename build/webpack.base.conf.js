@@ -31,6 +31,7 @@ module.exports = {
             'styles': path.resolve(__dirname,'../src/styles'),
             'static': path.resolve(__dirname, '../static'),
             'assets': path.resolve(__dirname, '../src/assets'),
+            'mock': path.resolve(__dirname, '../src/mock'),
         }
     },
     module: {
