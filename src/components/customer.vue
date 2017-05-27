@@ -51,7 +51,7 @@
 					</Menu>
 				</div>
 				<div class="ui-home-table-right">
-					<Table width="10%" height="615" :columns="columns1" :data="data2"></Table>
+					<Table width="10%" height="615" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page">
@@ -147,12 +147,12 @@ export default {
                 ],
 				data2: [
                     {
-                        name: '王小明',
+                        name: '王小明1',
                         age: 18,
                         address: '北京市朝阳区芍药居'
                     },
                     {
-                        name: '王小明',
+                        name: '王小明2',
                         age: 18,
                         address: '北京市朝阳区芍药居'
                     },
@@ -166,7 +166,8 @@ export default {
 	},
 	methods : {
 		...mapActions(['SET_MENU']),
-		changeMenu(){
+		changeMenu(row){
+			log(row);
 			this.SET_MENU(true);
 		}
 	},
