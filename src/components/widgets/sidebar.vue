@@ -1,21 +1,21 @@
 <template>
 	<div>
         <div class="ui-sidebar-menu">
-            <Menu @on-select="$go" width="84px" theme="dark" active-name="home" on-select>
+            <Menu @on-select="$go" width="84px" theme="dark" :active-name="$router.name">
 				<div class='ui-sidebar-logo'></div>
-				<Menu-item name="home" on-select>
-					<Icon class="ui-sidebar-icon ui-sidebar-icon0"></Icon>
+				<Menu-item name="home">
+					<Icon style="background-size: 80%;"  class="ui-sidebar-icon ui-sidebar-icon0"></Icon>
 				</Menu-item>
 				<Menu-item name="talk">
 					<Icon class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon1"></Icon>
 					洽谈
 				</Menu-item>
 				<Menu-item name="customer">
-					<Icon class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon2"></Icon>
+					<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon2"></Icon>
 					客户
 				</Menu-item>
 				<Menu-item name="contract">
-					<Icon class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon3"></Icon>
+					<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon3"></Icon>
 					合同
 				</Menu-item>
             </Menu>

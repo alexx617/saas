@@ -84,8 +84,52 @@
                             </li>
                         </ul>
                     </Tab-pane>
-                    <Tab-pane label="记账/报税">标签三的内容</Tab-pane>
-                    <Tab-pane label="缴费记录">标签三的内容</Tab-pane>
+
+
+                    <Tab-pane label="记账/报税">记账/报税</Tab-pane>
+
+
+                    <Tab-pane label="缴费记录">
+                        <ul>
+                            <li>
+                                <p>会计人员:</p>
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                            </li>
+                            <li>
+                                <p>时间范围:</p>
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                                至
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                            </li>
+                            <li>
+                                <p>费用类别:</p>
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                            </li>
+                            <li>
+                                <p>审账人员:</p>
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                            </li>
+                            <li>
+                                <p>逾期缴费:</p>
+                                <Select v-model="model1" style="width:200px">
+                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                </Select>
+                            </li>
+                        </ul>
+                        <Button type="primary" size="large">查询</Button>
+                    </Tab-pane>
+
+
                     <Tab-pane label="合同">标签三的内容</Tab-pane>
                     <Tab-pane label="任务协同">标签三的内容</Tab-pane>
                     <Tab-pane label="证件收取">标签三的内容</Tab-pane>
@@ -130,13 +174,14 @@ export default {
     width: 100%;
 }
 .ui-menu-infor{
+    font-size: 13px;
     li{
         margin-bottom: 50px;
         padding: 0 20px;
     }
     p{
         text-indent: 40px;
-        padding: 5px 0;
+        padding: 6px 0;
         margin: 10px 0;
     }
     table{
@@ -145,7 +190,7 @@ export default {
         border: 1px solid @gray;
         td{
             width:49%;
-            padding: 15px;
+            padding: 10px;
             border-bottom: 1px solid @gray;
         }
         td:not(:last-child){
