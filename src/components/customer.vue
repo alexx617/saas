@@ -20,7 +20,7 @@
 				</li>
 				<li>
 					<p>公司名称:</p>
-					<Input v-model="value" placeholder="请输入..." style="width: 200px"></Input>
+					<Input v-model="value" placeholder="请输入" style="width: 200px"></Input>
 				</li>
 				<li>
 					<Button type="primary" size="large" @click="changeMenu">统计</Button>

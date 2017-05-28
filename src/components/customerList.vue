@@ -17,7 +17,7 @@
                                         <td>公司名称:</td>
                                         <td>编号:</td>
                                     </tr>
-                                    <template v-if="showMore">
+                                    <template v-if="showMore.infor">
                                         <tr>
                                             <td colspan='2'>客户来源:</td>
                                         </tr>
@@ -37,7 +37,7 @@
                                         </tr>
                                     </template>
                                     <tr>
-                                        <td colspan="2" class="ui-menu-more" @click="lookMore">{{moreString}}</td>
+                                        <td colspan="2" class="ui-menu-more" @click="lookMore('infor')">{{moreString.infor}}</td>
                                     </tr>
                                 </table>
                             </li>
@@ -48,8 +48,27 @@
                                         <td>记账类别:</td>
                                         <td>邮寄方式:</td>
                                     </tr>
+                                    <template v-if="showMore.account">
+                                        <tr>
+                                            <td colspan='2'>客户来源:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>所在地区:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>详细地址:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>客户行业:</td>
+                                            <td>客户邮箱:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>联系电话:</td>
+                                            <td>联系人:</td>
+                                        </tr>
+                                    </template>
                                     <tr>
-                                        <td colspan="2" class="ui-menu-more">更多</td>
+                                        <td colspan="2" class="ui-menu-more" @click="lookMore('account')">{{moreString.account}}</td>
                                     </tr>
                                 </table>
                             </li>
@@ -316,23 +335,18 @@
 
 <script>
 const log = console.log;
+import moreMixin from './mixins/more';
 export default {
+    mixins: [moreMixin],
     data () {
-        return {
-            showMore:false,
-            moreString:'更多'
-        };
+        return {};
     },
     components:{},
     created() {
         
     },
     methods : {
-        lookMore(){
-            this.showMore = !this.showMore;
-            this.showMore ? this.moreString='收起' : this.moreString='更多' ;
-        }
-    },
+    }
 }
 
 </script>
