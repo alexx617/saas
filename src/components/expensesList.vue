@@ -10,7 +10,7 @@
                 <ul>
                     <li>
                         <p>会计人员:</p>
-                        <Select style="width: 150px" small v-model="model1">
+                        <Select style="width: 150px" small>
                             <Option small>123123</Option>
                         </Select>
                     </li>
@@ -22,13 +22,13 @@
                     </li>
                     <li>
                         <p>费用类别:</p>
-                        <Select v-model="model1" style="width:150px">
+                        <Select style="width:150px">
                             <Option small>123123</Option>
                         </Select>
                     </li>
                     <li>
                         <p>审账人员:</p>
-                        <Select v-model="model1" style="width:130px">
+                        <Select style="width:130px">
                             <Option small>123123</Option>
                         </Select>
                     </li>

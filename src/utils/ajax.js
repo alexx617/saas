@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
-import iView from 'iview';
+import iView from 'iview'
+
 Vue.use(iView);
 
 const log = console.log;

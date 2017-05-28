@@ -139,15 +139,16 @@ export default {
 		this.SET_MENU(false);
 		ajax.list()
 			.then(rs => {
+				log(rs)
 				if (rs.success) {
 					log('true')
 				} else {
-					// this.$tip(rs.message);
+					this.$tip(rs.message);
 					log('false')
 				};
 			})
 			.catch(error => {
-				// this.$tip(rs);
+				this.$tip(error);
 			});
 	},
 	methods : {

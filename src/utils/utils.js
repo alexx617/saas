@@ -17,5 +17,12 @@ export default {
         router.replace(page);
     },
 
+    $tip: function(msg) {
+        this.$Notice.warning({
+            title: '提醒',
+            desc: msg
+        });
+    }
+
 
 }

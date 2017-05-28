@@ -77,7 +77,7 @@
 						</tr>
 						<tr>
 							<td>
-								<Select v-model="model1">
+								<Select>
 									<Option>123123123</Option>
 								</Select>
 							</td>
@@ -88,7 +88,7 @@
 								<Date-picker type="date" placeholder="选择日期"></Date-picker>
 							</td>
 							<td>
-								<Select v-model="model1">
+								<Select>
 									<Option>123123123</Option>
 								</Select>
 							</td>

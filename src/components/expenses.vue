@@ -8,19 +8,19 @@
 			<ul class="ui-home-input">
 				<li>
 					<p>会计人员:</p>
-					<Select v-model="model1" style="width:120px">
+					<Select style="width:120px">
                             <Option>123123</Option>
 					</Select>
 				</li>
 				<li>
 					<p>审账人员:</p>
-					<Select v-model="model1" style="width:120px">
+					<Select style="width:120px">
                             <Option>123123</Option>
 					</Select>
 				</li>
 				<li>
 					<p>费用类别:</p>
-					<Select v-model="model1" style="width:120px">
+					<Select style="width:120px">
                             <Option>123123</Option>
 					</Select>
 				</li>
