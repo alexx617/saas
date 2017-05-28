@@ -18,6 +18,10 @@
 					<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon3"></Icon>
 					合同
 				</Menu-item>
+				<Menu-item name="expenses">
+					<Icon style="background-size: 59%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon4"></Icon>
+					费用
+				</Menu-item>
             </Menu>
         </div>
 	</div>
@@ -88,6 +92,9 @@ export default {
 }
 .ui-sidebar-icon3{
 	background:url("@{w-img}icon-contract.png") center no-repeat;
+}
+.ui-sidebar-icon4{
+	background:url("@{w-img}icon-expenses.png") center no-repeat;
 }
 .ivu-menu-item{
 	text-align: center;
