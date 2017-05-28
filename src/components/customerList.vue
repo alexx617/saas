@@ -297,7 +297,7 @@
                                                         <Step title="待进行" content="完成"></Step>
                                                     </Steps>
                                                 </div>
-    <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
+                                                <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
                                             </td>
                                         </tr>
                                     </tr>
@@ -306,8 +306,8 @@
                             </div>
                         </div>
                     </Tab-pane>
-                    <Tab-pane label="证件收取">标签三的内容</Tab-pane>
-                    <Tab-pane label="沟通记录">标签三的内容</Tab-pane>
+                    <Tab-pane label="证件收取">证件收取</Tab-pane>
+                    <Tab-pane label="沟通记录">沟通记录</Tab-pane>
                 </Tabs>
             </div>
         </div>
