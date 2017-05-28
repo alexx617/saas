@@ -1,29 +1,29 @@
 <template>
-   <div class="ui-menu">
+    <div class="ui-menu">
         <!--<div class="ui-menu-bg"></div>-->
         <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu }">
             <span @click="closeMenu" class="close"></span>
             <customer-list></customer-list>
-        </div>            
+        </div>
     </div>
 </template>
 
 <script>
 const log = console.log;
 import customerList from '../customerList'
-import {mapState,mapActions} from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
-    data () {
+    data() {
         return {
         };
     },
-    components:{customerList},
+    components: { customerList },
     computed: mapState({
-		changeMenu: state => state.doc.changeMenu,
-	}),
-    methods : {
+        changeMenu: state => state.doc.changeMenu,
+    }),
+    methods: {
         ...mapActions(['SET_MENU']),
-        closeMenu(){
+        closeMenu() {
             this.SET_MENU(false);
         }
     },
@@ -33,7 +33,7 @@ export default {
 
 <style lang='less' scoped>
 @import "../../styles/style.less";
-.ui-menu-box{
+.ui-menu-box {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -44,26 +44,28 @@ export default {
     transition: all 0.3s ease;
     z-index: 8;
     overflow: auto;
-    -webkit-transform:translateX(220%) translate3d(0, 0, 0);
+    -webkit-transform: translateX(220%) translate3d(0, 0, 0);
     box-shadow: -1px -1px 5px @blue;
 }
-.ui-menu-bg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    display: block;
-    opacity: 1;
-    z-index: 5;
-    transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
-    background-color: rgba(0, 0, 0, 0.01);
-}
-.ui-menu-close{
+
+// .ui-menu-bg{
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom:0;
+//     display: block;
+//     opacity: 1;
+//     z-index: 5;
+//     transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
+//     background-color: rgba(0, 0, 0, 0.01);
+// }
+.ui-menu-close {
     display: none;
     opacity: 0;
 }
-.close{
+
+.close {
     display: inline-block;
     float: right;
     width: 30px;
@@ -74,7 +76,8 @@ export default {
     background-size: cover;
     cursor: pointer;
 }
-.ui-menu-active{
+
+.ui-menu-active {
     transform: translateX(111%);
 }
 </style>
