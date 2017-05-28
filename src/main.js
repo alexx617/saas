@@ -7,7 +7,6 @@ import flexible from 'utils/flexible'
 import utils from 'utils/utils'
 import iView from 'iview'
 import store from 'store/store'
-import 'nprogress/nprogress.css'
 
 import 'iview/dist/styles/iview.css'
 import 'styles/reset.css'

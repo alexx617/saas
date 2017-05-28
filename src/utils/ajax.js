@@ -1,8 +1,10 @@
 // 接口请求
 
+import Vue from 'vue'
 import axios from 'axios'
 import qs from 'qs'
-import NProgress from 'nprogress'
+import iView from 'iview';
+Vue.use(iView);
 
 const log = console.log;
 
@@ -29,22 +31,22 @@ export function fetch(opt) {
 
 // 发送请求前处理数据
 axios.interceptors.request.use(config => {
-    NProgress.start();
+    iView.LoadingBar.start()
     if (config.method === 'post') {
         config.data = qs.stringify(config.data);
     }
     return config;
 }, error => {
-    NProgress.done();
+    iView.LoadingBar.finish();
     return Promise.reject(error);
 });
 
 // 返回响应请求后处理数据
 axios.interceptors.response.use(res => {
-    NProgress.done();
+    iView.LoadingBar.finish();
     return res;
 }, error => {
-    NProgress.done();
+    iView.LoadingBar.finish();
     // if (error.response.status == '403') {
     //     return Promise.resolve(error.response)
     // }
