@@ -17,34 +17,36 @@
                                         <td>公司名称:</td>
                                         <td>编号:</td>
                                     </tr>
+                                    <template v-if="showMore">
+                                        <tr>
+                                            <td colspan='2'>客户来源:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>所在地区:</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>详细地址:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>客户行业:</td>
+                                            <td>客户邮箱:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>联系电话:</td>
+                                            <td>联系人:</td>
+                                        </tr>
+                                    </template>
                                     <tr>
-                                        <td colspan='2'>客户来源:</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan='2'>所在地区:</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan='2'>详细地址:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>客户行业:</td>
-                                        <td>客户邮箱:</td>
-                                    </tr>
-                                    <tr>
-                                        <td>联系电话:</td>
-                                        <td>联系人:</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="ui-menu-more">更多</td>
+                                        <td colspan="2" class="ui-menu-more" @click="lookMore">{{moreString}}</td>
                                     </tr>
                                 </table>
                             </li>
                             <li>
-                                <p class="ui-menu-infor-icon0">基本信息:</p>
+                                <p class="ui-menu-infor-icon0">记账信息:</p>
                                 <table cellSpacing="0" cellPadding="0" border="1">
                                     <tr>
-                                        <td>公司名称:</td>
-                                        <td>编号:</td>
+                                        <td>记账类别:</td>
+                                        <td>邮寄方式:</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="ui-menu-more">更多</td>
@@ -289,11 +291,11 @@
                                                 <p style="margin-left: 40px;display:inline-block;font-weight: bold;">流程图:</p>
                                                 <div class="ui-task-lct">
                                                     <Steps :current="1" status="error">
-        <Step title="已完成" content="完成"></Step>
-        <Step title="进行中" content="项目经历审批"></Step>
-        <Step title="待进行" content="部门经历审批"></Step>
-        <Step title="待进行" content="完成"></Step>
-    </Steps>
+                                                        <Step title="已完成" content="完成"></Step>
+                                                        <Step title="进行中" content="项目经历审批"></Step>
+                                                        <Step title="待进行" content="部门经历审批"></Step>
+                                                        <Step title="待进行" content="完成"></Step>
+                                                    </Steps>
                                                 </div>
     <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
                                             </td>
@@ -317,7 +319,8 @@ const log = console.log;
 export default {
     data () {
         return {
-            
+            showMore:false,
+            moreString:'更多'
         };
     },
     components:{},
@@ -325,7 +328,10 @@ export default {
         
     },
     methods : {
-        
+        lookMore(){
+            this.showMore = !this.showMore;
+            this.showMore ? this.moreString='收起' : this.moreString='更多' ;
+        }
     },
 }
 
