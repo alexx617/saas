@@ -2,8 +2,10 @@ export default {
     data() {
         return {
             showMore: {
-                infor: false,
-                account: false
+                infor: false, //客户:基本信息=>基本信息
+                account: false, //客户:基本信息=>记账信息
+                contract: false, //客户:合同
+                task: false //客户:任务协同
             },
             moreString: {
                 infor: '更多',

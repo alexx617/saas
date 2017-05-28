@@ -203,8 +203,8 @@
                                         <th>客户代表</th>
                                         <th>公司代表</th>
                                     </tr>
-                                    <tr>
-                                        <td class="ui-sele-bottom">HT20170514</td>
+                                    <tr @click="lookMore('contract')">
+                                        <td :class="[ showMore.contract ? 'ui-sele-bottom' : 'ui-sele-right']">HT20170514</td>
                                         <td>代理记账</td>
                                         <td>年</td>
                                         <td>进行中</td>
@@ -214,36 +214,38 @@
                                         <td>宋先生</td>
                                         <td>刘先生</td>
                                         <tr>
-                                            <td colspan='9' class="ui-Contactslist-contract-table-detail">
-                                                <ul>
-                                                    <li>办理事项:小规模记账</li>
-                                                    <li style="width:15%">付款周期:月付</li>
-                                                    <li>账本费:200元</li>
-                                                    <li>纸质合同:签订</li>
-                                                    <li>开具发票:否</li>
-                                                    <div>
-                                                        <p>代收明细:</p>
-                                                        <table class="ui-Contactslist-contract-table-table">
-                                                            <tr>
-                                                                <th>代收项</th>
-                                                                <th>代收金额</th>
-                                                                <th>有效期</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    地税CA
-                                                                </td>
-                                                                <td>
-                                                                    500
-                                                                </td>
-                                                                <td>
-                                                                    2017-05-14
-                                                                </td>
-                                                            </tr>
-                                                        </Table>
-                                                    </div>
-                                                </ul>
-                                            </td>
+                                            <template v-if="showMore.contract">
+                                                <td colspan='9' class="ui-Contactslist-contract-table-detail">
+                                                    <ul>
+                                                        <li>办理事项:小规模记账</li>
+                                                        <li style="width:15%">付款周期:月付</li>
+                                                        <li>账本费:200元</li>
+                                                        <li>纸质合同:签订</li>
+                                                        <li>开具发票:否</li>
+                                                        <div>
+                                                            <p>代收明细:</p>
+                                                            <table class="ui-Contactslist-contract-table-table">
+                                                                <tr>
+                                                                    <th>代收项</th>
+                                                                    <th>代收金额</th>
+                                                                    <th>有效期</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        地税CA
+                                                                    </td>
+                                                                    <td>
+                                                                        500
+                                                                    </td>
+                                                                    <td>
+                                                                        2017-05-14
+                                                                    </td>
+                                                                </tr>
+                                                            </Table>
+                                                        </div>
+                                                    </ul>
+                                                </td>
+                                            </template>
                                         </tr>
                                     </tr>
                                    
@@ -301,25 +303,27 @@
                                         <th>状态</th>
                                         <th>紧急度</th>
                                     </tr>
-                                    <tr>
-                                        <td class="ui-task-bottom">开发票</td>
+                                    <tr @click="lookMore('task')">
+                                        <td :class="[ showMore.task ? 'ui-task-bottom' : 'ui-task-right']">开发票</td>
                                         <td>客户</td>
                                         <td>2018-04-02</td>
                                         <td>未处理</td>
                                         <td>高</td>
                                         <tr>
-                                            <td colspan='5' class="ui-Contactslist-contract-table-detail">
-                                                <p style="margin-left: 40px;display:inline-block;font-weight: bold;">流程图:</p>
-                                                <div class="ui-task-lct">
-                                                    <Steps :current="1" status="error">
-                                                        <Step title="已完成" content="完成"></Step>
-                                                        <Step title="进行中" content="项目经历审批"></Step>
-                                                        <Step title="待进行" content="部门经历审批"></Step>
-                                                        <Step title="待进行" content="完成"></Step>
-                                                    </Steps>
-                                                </div>
-                                                <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
-                                            </td>
+                                            <template v-if="showMore.task">
+                                                <td colspan='5' class="ui-Contactslist-contract-table-detail">
+                                                    <p style="margin-left: 40px;display:inline-block;font-weight: bold;">流程图:</p>
+                                                    <div class="ui-task-lct">
+                                                        <Steps :current="1" status="error">
+                                                            <Step title="已完成" content="完成"></Step>
+                                                            <Step title="进行中" content="项目经历审批"></Step>
+                                                            <Step title="待进行" content="部门经历审批"></Step>
+                                                            <Step title="待进行" content="完成"></Step>
+                                                        </Steps>
+                                                    </div>
+                                                    <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
+                                                </td>
+                                            </template>
                                         </tr>
                                     </tr>
                                 </table>
