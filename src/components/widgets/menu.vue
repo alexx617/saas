@@ -3,7 +3,7 @@
         <!--<div class="ui-menu-bg"></div>-->
         <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu }">
             <span @click="closeMenu" class="close"></span>
-            <customer-list></customer-list>
+            <component :is="showList"></component>
         </div>
     </div>
 </template>
@@ -11,13 +11,15 @@
 <script>
 const log = console.log;
 import customerList from '../customerList'
+import contractList from '../contractList'
 import { mapState, mapActions } from 'vuex'
 export default {
     data() {
         return {
+            showList:'contractList'
         };
     },
-    components: { customerList },
+    components: { customerList,contractList },
     computed: mapState({
         changeMenu: state => state.doc.changeMenu,
     }),
