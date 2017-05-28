@@ -2,3 +2,4 @@
 
 // 控制右侧栏
 export const SET_MENU = 'SET_MENU'; // 右侧拉出栏
+export const SET_COMPONENT = 'SET_COMPONENT'; // 拉出栏显示哪个子组件

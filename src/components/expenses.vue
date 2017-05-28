@@ -1,7 +1,7 @@
 <template>
 	<div class="all">
 		<div class="ui-title">
-			<span class="ui-title-logo ui-title-logo-service"></span>
+			<span class="ui-title-logo ui-title-logo-expenses"></span>
 			<p>费用总览</p>
 		</div>
 		<div class="ui-main">
@@ -28,13 +28,13 @@
 					<p>公司名称:</p>
 					<Input v-model="value" placeholder="请输入" style="width: 150px"></Input>
 				</li>
-				<li>
+				<li class="ui-exp-time">
 					<p>时间范围:</p>
-					<!--<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>-->
-					<!--至-->
-					<!--<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>-->
+					<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+					至
+					<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
 				</li>
-				<Button type="primary" size="large" @click="changeMenu">统计</Button>
+				<Button type="primary" size="large">统计</Button>
 			</ul>
 
 			<div class="ui-home-table">
@@ -172,13 +172,13 @@ export default {
 	},
 	components:{uimenu},
 	created() {
-		
+		this.SET_MENU(false);
 	},
 	methods : {
-		...mapActions(['SET_MENU']),
+		...mapActions(['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
-			log(row);
 			this.SET_MENU(true);
+			this.SET_COMPONENT('expensesList')
 		}
 	},
 }
@@ -239,5 +239,18 @@ export default {
     // margin-left: -5px;
     border-left: 1px solid @blue;
     z-index: 3;
+}
+
+
+
+
+.ui-exp-time{
+	margin-right: 30px;
+	p{
+		display: inline-block;
+	}
+}
+.ivu-date-picker{
+	display: inline-block;
 }
 </style>

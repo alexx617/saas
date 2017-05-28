@@ -12,19 +12,20 @@
 const log = console.log;
 import customerList from '../customerList'
 import contractList from '../contractList'
+import expensesList from '../expensesList'
 import { mapState, mapActions } from 'vuex'
 export default {
     data() {
         return {
-            showList:'contractList'
         };
     },
-    components: { customerList,contractList },
+    components: { customerList,contractList,expensesList },
     computed: mapState({
         changeMenu: state => state.doc.changeMenu,
+        showList: state => state.doc.showList
     }),
     methods: {
-        ...mapActions(['SET_MENU']),
+        ...mapActions(['SET_MENU','']),
         closeMenu() {
             this.SET_MENU(false);
         }

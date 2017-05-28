@@ -162,12 +162,13 @@ export default {
 	},
 	components:{uimenu},
 	created() {
-		
+		this.SET_MENU(false);
 	},
 	methods : {
-		...mapActions(['SET_MENU']),
+		...mapActions(['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
 			this.SET_MENU(true);
+			this.SET_COMPONENT('contractList')
 		}
 	},
 }
