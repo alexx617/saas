@@ -14,28 +14,28 @@
 				<div class="ui-contractList-msgBox">
 					<Form :model="formItem" :label-width="80">
 						<Form-item label="合同客户:">
-							<Input style="width: 200px" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="业务类型:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="经手人:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="提成金额:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="介绍人:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="支付周期:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="合同号:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="服务费:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						
 						<Form-item label="是否预付">
@@ -45,7 +45,7 @@
 							</Radio-group>
 						</Form-item>
 						<Form-item label="支付金额:">
-							<Input style="width: 200px"  v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item style="width: 100%" label="备注:">
 							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>

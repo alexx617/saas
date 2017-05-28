@@ -74,13 +74,13 @@
 				</div>
 			</div>
 		</div>
-		<uimenu></uimenu>
+		<pullbox></pullbox>
 	</div>
 </template>
 
 <script>
 const log = console.log;
-import uimenu from 'widgets/menu.vue'
+import pullbox from 'widgets/pullbox.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -170,7 +170,7 @@ export default {
 				
 		};
 	},
-	components:{uimenu},
+	components:{pullbox},
 	created() {
 		this.SET_MENU(false);
 	},

@@ -1,7 +1,7 @@
 <template>
-    <div class="ui-menu">
-        <!--<div class="ui-menu-bg"></div>-->
-        <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu ,'ui-menu-isexp': showList==='expensesList'}">
+    <div class="ui-pullbox">
+        <!--<div class="ui-pullbox-bg"></div>-->
+        <div class="ui-pullbox-box" :class="{'ui-pullbox-active' : changeMenu ,'ui-pullbox-isexp': showList==='expensesList'}">
             <span @click="closeMenu" class="close"></span>
             <component :is="showList"></component>
         </div>
@@ -36,7 +36,7 @@ export default {
 
 <style lang='less' scoped>
 @import "../../styles/style.less";
-.ui-menu-box {
+.ui-pullbox-box {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -51,7 +51,7 @@ export default {
     box-shadow: -1px -1px 5px @blue;
 }
 
-// .ui-menu-bg{
+// .ui-pullbox-bg{
 //     position: absolute;
 //     top: 0;
 //     left: 0;
@@ -63,7 +63,7 @@ export default {
 //     transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
 //     background-color: rgba(0, 0, 0, 0.01);
 // }
-.ui-menu-close {
+.ui-pullbox-close {
     display: none;
     opacity: 0;
 }
@@ -80,17 +80,17 @@ export default {
     cursor: pointer;
 }
 
-.ui-menu-active {
+.ui-pullbox-active {
     transform: translateX(111%);
 }
 
 
 
 
-.ui-menu-isexp{
+.ui-pullbox-isexp{
     background: #fff;
     width: 60%;
-    &.ui-menu-active{
+    &.ui-pullbox-active{
         transform: translateX(58%);
     }
 }

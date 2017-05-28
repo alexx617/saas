@@ -18,7 +18,24 @@
                                         <td>编号:</td>
                                     </tr>
                                     <tr>
-                                        <td  colspan="2" class="ui-menu-more">更多</td>
+                                        <td colspan='2'>客户来源:</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan='2'>所在地区:</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan='2'>详细地址:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>客户行业:</td>
+                                        <td>客户邮箱:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>联系电话:</td>
+                                        <td>联系人:</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="ui-menu-more">更多</td>
                                     </tr>
                                 </table>
                             </li>

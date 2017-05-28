@@ -1,29 +1,28 @@
 <template>
-	<div>
-        <div class="ui-sidebar-menu">
-            <Menu @on-select="$go" width="84px" theme="dark" :active-name="$router.name">
-				<div class='ui-sidebar-logo'></div>
-				<Menu-item name="home">
-					<Icon style="background-size: 80%;"  class="ui-sidebar-icon ui-sidebar-icon0"></Icon>
-				</Menu-item>
-				<Menu-item name="talk">
-					<Icon class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon1"></Icon>
-					洽谈
-				</Menu-item>
-				<Menu-item name="customer">
-					<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon2"></Icon>
-					客户
-				</Menu-item>
-				<Menu-item name="contract">
-					<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon3"></Icon>
-					合同
-				</Menu-item>
-				<Menu-item name="expenses">
-					<Icon style="background-size: 59%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon4"></Icon>
-					费用
-				</Menu-item>
-            </Menu>
-        </div>
+	<div class="ui-sidebar-menu">
+		
+		<Menu @on-select="$go" width="84px" theme="dark" :active-name="$route.name">
+			<div class='ui-sidebar-logo'></div>
+			<Menu-item name="home">
+				<Icon style="background-size: 80%;"  class="ui-sidebar-icon ui-sidebar-icon0"></Icon>
+			</Menu-item>
+			<Menu-item name="talk">
+				<Icon class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon1"></Icon>
+				洽谈
+			</Menu-item>
+			<Menu-item name="customer">
+				<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon2"></Icon>
+				客户
+			</Menu-item>
+			<Menu-item name="contract">
+				<Icon style="background-size: 70%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon3"></Icon>
+				合同
+			</Menu-item>
+			<Menu-item name="expenses">
+				<Icon style="background-size: 59%;" class="ui-sidebar-icon ui-sidebar-icon ui-sidebar-icon4"></Icon>
+				费用
+			</Menu-item>
+		</Menu>
 	</div>
 </template>
 
