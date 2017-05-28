@@ -90,43 +90,45 @@
 
 
                     <Tab-pane label="缴费记录">
-                        <ul>
-                            <li>
-                                <p>会计人员:</p>
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                            </li>
-                            <li>
-                                <p>时间范围:</p>
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                                至
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                            </li>
-                            <li>
-                                <p>费用类别:</p>
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                            </li>
-                            <li>
-                                <p>审账人员:</p>
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                            </li>
-                            <li>
-                                <p>逾期缴费:</p>
-                                <Select v-model="model1" style="width:200px">
-                                    <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
-                                </Select>
-                            </li>
-                        </ul>
-                        <Button type="primary" size="large">查询</Button>
+                        <div class="ui-Contactslist-contrec">
+                            <ul>
+                                <li>
+                                    <p>会计人员:</p>
+                                    <Select style="width: 150px" small v-model="model1">
+                                        <Option small v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                    </Select>
+                                </li>
+                                <li>
+                                    <p>时间范围:</p>
+                                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+                                    至
+                                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+                                </li>
+                                <li>
+                                    <p>费用类别:</p>
+                                    <Select v-model="model1" style="width:150px">
+                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                    </Select>
+                                </li>
+                                <li>
+                                    <p>审账人员:</p>
+                                    <Select v-model="model1" style="width:130px">
+                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                    </Select>
+                                </li>
+                                <li>
+                                    <p>逾期缴费:</p>
+                                    <Checkbox v-model="single">&nbsp;</Checkbox>
+                                </li>
+                            </ul>
+                            <Button type="primary" size="large">查询</Button>
+                            <div class="ui-Contactslist-table">
+                                <div class="ui-Contactslist-table-title">
+                                    <p>剩余应收款:1234元</p>
+                                    <p>本月应收款:1234元</p>
+                                </div>
+                            </div>
+                        </div>
                     </Tab-pane>
 
 
@@ -240,4 +242,45 @@ export default {
     margin-right: 35px;
     float: right;
 }
+.ui-Contactslist-contrec{
+    padding: 20px;
+    font-size: 13px;
+    ul{
+        width: 88%;
+        display: inline-block;
+        vertical-align: middle;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            padding-bottom: 10px;
+            padding-right: 10px;
+        }
+        p{
+            display: inline-block;
+        }
+    }
+    Button{
+        width: 10%;
+        margin-top: 30px;
+    }
+}
+.ivu-date-picker,
+.ivu-select{
+    display: inline-block;
+}
+.ui-Contactslist-table{
+    background: #FfF;
+    border: 1px solid #000;
+    .ui-Contactslist-table-title{
+        padding: 10px 0;
+        text-align: center;
+        p{
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+}
+
 </style>
