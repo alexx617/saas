@@ -9,6 +9,8 @@
                 <Tabs size="small">
 
                     <Tab-pane label="基本信息">
+                        <Button style="float:right;margin-right:20px;" type="primary" size="large">保存</Button>
+                        <div class="clear"></div>
                         <ul class="ui-menu-infor">
                             <li>
                                 <p class="ui-menu-infor-icon0">基本信息:</p>
@@ -368,13 +370,13 @@ export default {
 .ui-menu-infor{
     font-size: 13px;
     li{
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         padding: 0 20px;
     }
     p{
         text-indent: 40px;
         padding: 6px 0;
-        margin: 10px 0;
+        margin: 5px 0;
     }
     table{
         background: #fff;

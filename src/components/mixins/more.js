@@ -17,5 +17,4 @@ export default {
             this.showMore[me] ? this.moreString[me] = '收起' : this.moreString[me] = '更多';
         }
     },
-
 }
