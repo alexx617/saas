@@ -225,4 +225,9 @@ export default {
 	padding: 20px 0;
 	float: right;
 }
+.ivu-table-wrapper{
+    // margin-left: -5px;
+    border-left: 1px solid @blue;
+    z-index: 3;
+}
 </style>
