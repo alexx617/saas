@@ -78,18 +78,18 @@
 						<tr>
 							<td>
 								<Select v-model="model1">
-									<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+									<Option>123123123</Option>
 								</Select>
 							</td>
 							<td>
-								<Input v-model="formItem.input" placeholder="请输入"></Input>
+								<Input placeholder="请输入"></Input>
 							</td>
 							<td>
 								<Date-picker type="date" placeholder="选择日期"></Date-picker>
 							</td>
 							<td>
 								<Select v-model="model1">
-									<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+									<Option>123123123</Option>
 								</Select>
 							</td>
 							<td class="ui-contractList-coll-del">

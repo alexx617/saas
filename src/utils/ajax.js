@@ -2,10 +2,12 @@
 
 import axios from 'axios'
 import qs from 'qs'
-import utils from '../utils/utils'
+import NProgress from 'nprogress'
 
 const log = console.log;
 
+axios.defaults.timeout = 5000;
+axios.defaults.baseURL = 'http://dengxiaoying.vicp.io:35200';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 export function fetch(opt) {
@@ -25,35 +27,35 @@ export function fetch(opt) {
     })
 }
 
-// 拦截器(在发送请求前处理数据)
+// 发送请求前处理数据
 axios.interceptors.request.use(config => {
-    utils.$load();
+    NProgress.start();
     if (config.method === 'post') {
         config.data = qs.stringify(config.data);
     }
     return config;
 }, error => {
-    utils.$LoadClose();
+    NProgress.done();
     return Promise.reject(error);
 });
 
-// 拦截器(在返回响应请求后处理数据)
+// 返回响应请求后处理数据
 axios.interceptors.response.use(res => {
-    utils.$LoadClose();
+    NProgress.done();
     return res;
 }, error => {
-    utils.$LoadClose();
-    if (error.response.status == '403') {
-        return Promise.resolve(error.response)
-    }
+    NProgress.done();
+    // if (error.response.status == '403') {
+    //     return Promise.resolve(error.response)
+    // }
 });
 
 
 export default {
-    login(data) {
+    list(data) {
         return fetch({
-            method: 'post',
-            url: `/login/`,
+            method: 'get',
+            url: `/customer/list`,
             data
         })
     }

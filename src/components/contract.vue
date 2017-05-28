@@ -8,19 +8,19 @@
 			<ul class="ui-contractinput">
 				<li>
 					<p>会计人员:</p>
-					<Select v-model="model1" style="width:200px">
-						<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+					<Select style="width:200px">
+						<Option>123123</Option>
 					</Select>
 				</li>
 				<li>
 					<p>经手人:</p>
-					<Select v-model="model1" style="width:200px">
-						<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+					<Select style="width:200px">
+						<Option>123123</Option>
 					</Select>
 				</li>
 				<li>
 					<p>公司名称:</p>
-					<Input v-model="value" placeholder="请输入" style="width: 200px"></Input>
+					<Input placeholder="请输入" style="width: 200px"></Input>
 				</li>
 				<li>
 					<Button type="primary" size="large">统计</Button>
@@ -71,38 +71,12 @@
 <script>
 const log = console.log;
 import pullbox from 'widgets/pullbox.vue'
+import ajax from '../utils/ajax.js';
 import { mapActions } from 'vuex'
 
 export default {
 	data () {
 		return {
-			cityList: [
-                    {
-                        value: 'beijing',
-                        label: '北京市'
-                    },
-                    {
-                        value: 'shanghai',
-                        label: '上海市'
-                    },
-                    {
-                        value: 'shenzhen',
-                        label: '深圳市'
-                    },
-                    {
-                        value: 'hangzhou',
-                        label: '杭州市'
-                    },
-                    {
-                        value: 'nanjing',
-                        label: '南京市'
-                    },
-                    {
-                        value: 'chongqing',
-                        label: '重庆市'
-                    }
-                ],
-                model1: '',
 				columns1: [
                     {
                         title: '客户简称',
@@ -163,6 +137,18 @@ export default {
 	components:{pullbox},
 	created() {
 		this.SET_MENU(false);
+		ajax.list()
+			.then(rs => {
+				if (rs.success) {
+					log('true')
+				} else {
+					// this.$tip(rs.message);
+					log('false')
+				};
+			})
+			.catch(error => {
+				// this.$tip(rs);
+			});
 	},
 	methods : {
 		...mapActions(['SET_MENU','SET_COMPONENT']),

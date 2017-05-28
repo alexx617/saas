@@ -135,7 +135,7 @@
                                 <li>
                                     <p>会计人员:</p>
                                     <Select style="width: 150px" small v-model="model1">
-                                        <Option small v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option small>213123</Option>
                                     </Select>
                                 </li>
                                 <li>
@@ -147,13 +147,13 @@
                                 <li>
                                     <p>费用类别:</p>
                                     <Select v-model="model1" style="width:150px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>213123</Option>
                                     </Select>
                                 </li>
                                 <li>
                                     <p>审账人员:</p>
                                     <Select v-model="model1" style="width:130px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>213123</Option>
                                     </Select>
                                 </li>
                                 <li>
@@ -259,7 +259,7 @@
                                 <li>
                                     <p>&nbsp;&nbsp;&nbsp;&nbsp;发起人:</p>
                                     <Select style="width: 110px" small v-model="model1">
-                                        <Option small v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option small>3333</Option>
                                     </Select>
                                 </li>
                                 <li>
@@ -269,25 +269,25 @@
                                 <li>
                                     <p>&nbsp;&nbsp;&nbsp;紧急度:</p>
                                     <Select v-model="model1" style="width:110px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>3333</Option>
                                     </Select>
                                 </li>
                                 <li>
                                     <p>执行状态:</p>
                                     <Select v-model="model1" style="width:110px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>3333</Option>
                                     </Select>
                                 </li>
                                 <li>
                                     <p>是否延期:</p>
                                     <Select v-model="model1" style="width:110px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>3333</Option>
                                     </Select>
                                 </li>
                                 <li>
                                     <p>任务类型:</p>
                                     <Select v-model="model1" style="width:110px">
-                                        <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                                        <Option>3333</Option>
                                     </Select>
                                 </li>
                             </ul>

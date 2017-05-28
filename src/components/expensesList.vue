@@ -11,7 +11,7 @@
                     <li>
                         <p>会计人员:</p>
                         <Select style="width: 150px" small v-model="model1">
-                            <Option small v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                            <Option small>123123</Option>
                         </Select>
                     </li>
                     <li>
@@ -23,13 +23,13 @@
                     <li>
                         <p>费用类别:</p>
                         <Select v-model="model1" style="width:150px">
-                            <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                            <Option small>123123</Option>
                         </Select>
                     </li>
                     <li>
                         <p>审账人员:</p>
                         <Select v-model="model1" style="width:130px">
-                            <Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+                            <Option small>123123</Option>
                         </Select>
                     </li>
                     <li>
