@@ -17,7 +17,6 @@ export default {
             state.changeMenu = data;
         },
         [SET_COMPONENT](state, data) {
-            log(data);
             state.showList = data;
         }
     },

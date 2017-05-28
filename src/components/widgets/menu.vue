@@ -1,7 +1,7 @@
 <template>
     <div class="ui-menu">
         <!--<div class="ui-menu-bg"></div>-->
-        <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu }">
+        <div class="ui-menu-box" :class="{'ui-menu-active' : changeMenu ,'ui-menu-isexp': showList==='expensesList'}">
             <span @click="closeMenu" class="close"></span>
             <component :is="showList"></component>
         </div>
@@ -25,7 +25,7 @@ export default {
         showList: state => state.doc.showList
     }),
     methods: {
-        ...mapActions(['SET_MENU','']),
+        ...mapActions(['SET_MENU']),
         closeMenu() {
             this.SET_MENU(false);
         }
@@ -82,5 +82,16 @@ export default {
 
 .ui-menu-active {
     transform: translateX(111%);
+}
+
+
+
+
+.ui-menu-isexp{
+    background: #fff;
+    width: 60%;
+    &.ui-menu-active{
+        transform: translateX(58%);
+    }
 }
 </style>
