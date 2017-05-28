@@ -255,29 +255,30 @@
                             <div class="ui-Contactslist-task">
                                 <table>
                                     <tr>
-                                        <th style="width:15%">合同编号</th> 
-                                        <th>合同类型</th>
-                                        <th>合同周期</th>
-                                        <th>合同状态</th>
-                                        <th>签约时间</th>
-                                        <th>实收费用</th>
-                                        <th>优惠金额</th>
-                                        <th>客户代表</th>
-                                        <th>公司代表</th>
+                                        <th style="width:20%">任务类型</th> 
+                                        <th>发起人</th>
+                                        <th>发起时间</th>
+                                        <th>状态</th>
+                                        <th>紧急度</th>
                                     </tr>
                                     <tr>
-                                        <td class="ui-sele-bottom">HT20170514</td>
-                                        <td>代理记账</td>
-                                        <td>年</td>
-                                        <td>进行中</td>
-                                        <td>2017-05-14</td>
-                                        <td>5000元</td>
-                                        <td>500元</td>
-                                        <td>宋先生</td>
-                                        <td>刘先生</td>
+                                        <td class="ui-task-bottom">开发票</td>
+                                        <td>客户</td>
+                                        <td>2018-04-02</td>
+                                        <td>未处理</td>
+                                        <td>高</td>
                                         <tr>
-                                            <td colspan='9' class="ui-Contactslist-contract-table-detail">
-                                                
+                                            <td colspan='5' class="ui-Contactslist-contract-table-detail">
+                                                <p style="margin-left: 40px;display:inline-block;font-weight: bold;">流程图:</p>
+                                                <div class="ui-task-lct">
+                                                    <Steps :current="1" status="error">
+        <Step title="已完成" content="完成"></Step>
+        <Step title="进行中" content="项目经历审批"></Step>
+        <Step title="待进行" content="部门经历审批"></Step>
+        <Step title="待进行" content="完成"></Step>
+    </Steps>
+                                                </div>
+    <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
                                             </td>
                                         </tr>
                                     </tr>
@@ -502,11 +503,47 @@ export default {
     background: url("@{img}icon-sele-bottom.png") 2% no-repeat;
     background-size: 12%;
 }
+
 .ui-sele-right{
     background: url("@{img}icon-sele-right.png") 2% no-repeat;
     background-size: 9%;
 }
+.ui-task-bottom{
+    background: url("@{img}icon-sele-bottom.png") 2% no-repeat;
+    background-size: 11%;
+}
+.ui-task-right{
+    background: url("@{img}icon-sele-right.png") 2% no-repeat;
+    background-size: 8%;
+}
 .ui-Contactslist-task{
-    
+    width: 100%;
+    border: 1px solid #dddddd; 
+    background: #ededed;
+    width: 100%;
+    table{
+        table-layout: fixed;
+        text-align: center;
+        width: 100%;
+        tr{
+            border: 1px solid #dddddd; 
+            th,td{
+                padding: 10px 5px;
+            }
+            > td{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.ui-task-lct{
+    width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 40px;
+}
+.ui-task-lct-tip{
+    text-align: center;
+    color: red;
 }
 </style>
