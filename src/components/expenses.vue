@@ -8,23 +8,33 @@
 			<ul class="ui-home-input">
 				<li>
 					<p>会计人员:</p>
-					<Select v-model="model1" style="width:200px">
+					<Select v-model="model1" style="width:120px">
 						<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
 					</Select>
 				</li>
 				<li>
 					<p>审账人员:</p>
-					<Select v-model="model1" style="width:200px">
+					<Select v-model="model1" style="width:120px">
 						<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
 					</Select>
 				</li>
 				<li>
 					<p>费用类别:</p>
-					<Input v-model="value" placeholder="请输入" style="width: 200px"></Input>
+					<Select v-model="model1" style="width:120px">
+						<Option v-for="item in cityList" :value="item.value" :key="item">{{ item.label }}</Option>
+					</Select>
 				</li>
 				<li>
-					<Button type="primary" size="large" @click="changeMenu">统计</Button>
+					<p>公司名称:</p>
+					<Input v-model="value" placeholder="请输入" style="width: 150px"></Input>
 				</li>
+				<li>
+					<p>时间范围:</p>
+					<!--<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>-->
+					<!--至-->
+					<!--<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>-->
+				</li>
+				<Button type="primary" size="large" @click="changeMenu">统计</Button>
 			</ul>
 
 			<div class="ui-home-table">
