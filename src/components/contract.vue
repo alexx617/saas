@@ -146,7 +146,7 @@ export default {
 		...mapActions(['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
 			this.SET_MENU(true);
-			this.SET_COMPONENT('contractList')
+			this.SET_COMPONENT(['contractList',row])
 		}
 	},
 }

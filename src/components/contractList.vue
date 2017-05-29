@@ -105,6 +105,7 @@
 
 <script>
 const log = console.log;
+import { mapState } from 'vuex'
 export default {
     data () {
         return {
@@ -125,9 +126,9 @@ export default {
         };
     },
     components:{},
-    created() {
-        
-    },
+    computed: mapState({
+        list: state => state.doc.listData.data,
+    }),
     methods : {
 	}
 }

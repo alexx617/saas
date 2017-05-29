@@ -2,14 +2,13 @@
     <div>
         <div class="ui-menu-select">
                 <div class="ui-menu-title">
-                    <p>客户123</p>
+                    <p>{{list.name}}</p>
                 </div>
             </div>
             <div class="ui-menu-tabs">
                 <Tabs size="small">
-
                     <Tab-pane label="基本信息">
-                        <Button style="float:right;margin-right:20px;" type="primary" size="large">保存</Button>
+                        <Button style="float:right;margin-right:20px;" type="primary">保存</Button>
                         <div class="clear"></div>
                         <ul class="ui-menu-infor">
                             <li>
@@ -165,7 +164,7 @@
                                     <Checkbox v-model="single">&nbsp;</Checkbox>
                                 </li>
                             </ul>
-                            <Button type="primary" size="large">查询</Button>
+                            <Button type="primary">查询</Button>
                             <div class="ui-Contactslist-table">
                                 <div class="ui-Contactslist-table-title">
                                     <p>剩余应收款:1234元</p>
@@ -191,7 +190,7 @@
                     <Tab-pane label="合同">
                         <div class="ui-Contactslist-contract">
                             <div class="ui-Contactslist-contract-bottom">
-                                <Button type="primary" size="large">添加合同</Button>
+                                <Button type="primary">添加合同</Button>
                             </div>
                             <div class="clear"></div>
                             <div class="ui-Contactslist-contract-table">
@@ -297,7 +296,7 @@
                                     </Select>
                                 </li>
                             </ul>
-                            <Button type="primary" size="large">查询</Button>
+                            <Button type="primary">查询</Button>
                             <div class="ui-Contactslist-task">
                                 <table>
                                     <tr>
@@ -345,16 +344,37 @@
 <script>
 const log = console.log;
 import moreMixin from './mixins/more';
+import ajax from '../utils/ajax.js';
+import { mapState } from 'vuex'
 export default {
     mixins: [moreMixin],
     data () {
         return {};
     },
     components:{},
+    computed: mapState({
+        list: state => state.doc.listData.data,
+    }),
     created() {
-        
+        this.getAjax();
+	},
+    updated() {
+        this.getAjax();
     },
     methods : {
+        getAjax(){
+            ajax.contractPullInit(this.list)
+			.then(rs => {
+				if (rs.success) {
+                    
+				} else {
+					this.$tip(rs.message);
+				};
+			})
+			.catch(error => {
+				this.$tip(error);
+			});
+        }
     }
 }
 

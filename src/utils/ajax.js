@@ -62,5 +62,12 @@ export default {
             url: `/api/customer/list`,
             data
         })
+    },
+    //客户拉出框init
+    contractPullInit(data) {
+        return fetch({
+            method: 'get',
+            url: `/api/customer/${data.id}`,
+        })
     }
 }
