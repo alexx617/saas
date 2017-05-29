@@ -9,7 +9,10 @@ export default {
 
     state: {
         changeMenu: false,
-        showList: null,
+        listData: {
+            showList: null,
+            data: {}
+        }
     },
 
     mutations: {
@@ -17,7 +20,8 @@ export default {
             state.changeMenu = data;
         },
         [SET_COMPONENT](state, data) {
-            state.showList = data;
+            state.listData.showList = data[0];
+            state.listData.data = data[1];
         }
     },
 
@@ -27,7 +31,8 @@ export default {
             commit(SET_MENU, data);
         },
         SET_COMPONENT({ commit }, data) {
-            if (data === undefined) { throw new Error('SET_COMPONENT未设置值'); };
+            log(data)
+            if (data.length < 2) { throw new Error('SET_COMPONENT未设置值'); };
             commit(SET_COMPONENT, data);
         }
     }

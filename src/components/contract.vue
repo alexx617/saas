@@ -46,7 +46,6 @@
 							<Menu-item name="5">
 								阿里巴巴集团
 							</Menu-item>
-							
 						</Menu-group>
 					</Menu>
 				</div>
@@ -130,26 +129,18 @@ export default {
                         age: 18,
                         address: '北京市朝阳区芍药居'
                     },
-				]
-				
+				],
+				form:{
+					page:0,
+					paras:{},
+					size:0
+				}
 		};
 	},
 	components:{pullbox},
 	created() {
 		this.SET_MENU(false);
-		ajax.list()
-			.then(rs => {
-				log(rs)
-				if (rs.success) {
-					log('true')
-				} else {
-					this.$tip(rs.message);
-					log('false')
-				};
-			})
-			.catch(error => {
-				this.$tip(error);
-			});
+		
 	},
 	methods : {
 		...mapActions(['SET_MENU','SET_COMPONENT']),

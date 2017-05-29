@@ -48,7 +48,7 @@
 							<Input style="width: 200px" icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item style="width: 100%" label="备注:">
-							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
 						</Form-item>
 					</Form>
 				</div>

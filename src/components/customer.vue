@@ -50,15 +50,15 @@
 					</Menu>
 				</div>
 				<div class="ui-home-table-right">
-					<Table width="10%" height="615" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
+					<Table width="10%" height="615" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 8 条  共  8 条</p>
+						<p>当前第 1 到 {{form.size}} 条  共  {{form.numberOfElements}} 条</p>
 					</div>
 					<div class="ui-home-table-page-right">
-						<Page :total="100" show-elevator></Page>
+						<Page :total="form.numberOfElements" show-elevator></Page>
 					</div>
 				</div>
 			</div>
@@ -70,6 +70,7 @@
 <script>
 const log = console.log;
 import pullbox from 'widgets/pullbox.vue'
+import ajax from '../utils/ajax.js';
 import { mapActions } from 'vuex'
 
 export default {
@@ -82,11 +83,11 @@ export default {
                     },
                     {
                         title: '客户级别',
-                        key: 'age'
+                        key: 'level'
                     },
                     {
                         title: '登记时间',
-                        key: 'address'
+                        key: 'createDate'
                     },
                     {
                         title: '企业类型',
@@ -117,31 +118,35 @@ export default {
                         key: 'address'
                     }
                 ],
-				data2: [
-                    {
-                        name: '王小明1',
-                        age: 18,
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明2',
-                        age: 18,
-                        address: '北京市朝阳区芍药居'
-                    },
-				]
+				form:{//客户列表分页
+					page:0,
+					size:10,
+				},
+				content:[]//客户列表
 				
 		};
 	},
 	components:{pullbox},
 	created() {
 		this.SET_MENU(false);
+		ajax.contractList(this.form)
+			.then(rs => {
+				if (rs.success) {
+					this.content = rs.data.content;//客户列表
+					this.form = rs.data;//客户列表分页
+				} else {
+					this.$tip(rs.message);
+				};
+			})
+			.catch(error => {
+				this.$tip(error);
+			});
 	},
 	methods : {
 		...mapActions(['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
-			log(row);
 			this.SET_MENU(true);
-			this.SET_COMPONENT('customerList')
+			this.SET_COMPONENT(['customerList', row])
 		}
 	},
 }

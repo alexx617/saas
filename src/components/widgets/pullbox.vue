@@ -15,6 +15,7 @@ import contractList from '../contractList'
 import expensesList from '../expensesList'
 import { mapState, mapActions } from 'vuex'
 export default {
+    props: [listData],
     data() {
         return {
         };
@@ -22,7 +23,8 @@ export default {
     components: { customerList,contractList,expensesList },
     computed: mapState({
         changeMenu: state => state.doc.changeMenu,
-        showList: state => state.doc.showList
+        showList: state => state.doc.listData.showList,
+        listData: state => state.doc.listData.data
     }),
     methods: {
         ...mapActions(['SET_MENU']),

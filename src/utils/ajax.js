@@ -10,7 +10,7 @@ Vue.use(iView);
 const log = console.log;
 
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://dengxiaoying.vicp.io:35200';
+// axios.defaults.baseURL = 'http://dengxiaoying.vicp.io:35200';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 export function fetch(opt) {
@@ -55,10 +55,11 @@ axios.interceptors.response.use(res => {
 
 
 export default {
-    list(data) {
+    //客户initList
+    contractList(data) {
         return fetch({
             method: 'get',
-            url: `/customer/list`,
+            url: `/api/customer/list`,
             data
         })
     }
