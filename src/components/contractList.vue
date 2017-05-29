@@ -114,14 +114,14 @@ export default {
 				textarea: ''
 			},
 			baseData: [{
-                    expand: true,
-                    title: '法人变更',
-                    children: [{
-                        title: '地址变更',
-                        expand: true,
-                        disabled: false
-                    }]
-                }]
+				expand: true,
+				title: '法人变更',
+				children: [{
+					title: '地址变更',
+					expand: true,
+					disabled: false
+				}]
+			}]
         };
     },
     components:{},

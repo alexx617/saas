@@ -23,9 +23,5 @@ export default {
 </script>
 
 <style lang='less' scoped>
-.edit{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
+
 </style>

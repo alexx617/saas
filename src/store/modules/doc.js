@@ -23,11 +23,11 @@ export default {
 
     actions: {
         SET_MENU({ commit }, data) {
-            if (data === undefined) { throw new Error('未设置值'); };
+            if (data === undefined) { throw new Error('SET_MENU未设置值'); };
             commit(SET_MENU, data);
         },
         SET_COMPONENT({ commit }, data) {
-            if (data === undefined) { throw new Error('未设置值'); };
+            if (data === undefined) { throw new Error('SET_COMPONENT未设置值'); };
             commit(SET_COMPONENT, data);
         }
     }
