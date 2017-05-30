@@ -126,8 +126,10 @@
 
 
                     <Tab-pane label="记账/报税">
-                        <div>
-                            
+                        <div class="ui-Contactslist-tax">
+                            <Button type="primary">进账簿</Button>
+                            <div class="clear"></div>
+                            <h3>票据-记账</h3>
                         </div>
                     </Tab-pane>
 
@@ -349,7 +351,11 @@ import { mapState } from 'vuex'
 export default {
     mixins: [moreMixin],
     data () {
-        return {};
+        return {
+            tt:{
+
+            }
+        };
     },
     components:{},
     computed: mapState({
@@ -371,6 +377,10 @@ export default {
 			.catch(error => {
 				this.$tip(error);
 			});
+        },
+        testmore(tes){
+            // this.tt[tes]=!this.tt[tes]);
+            log(this.tt)
         }
     }
 }
@@ -608,5 +618,11 @@ export default {
 .ui-task-lct-tip{
     text-align: center;
     color: red;
+}
+.ui-Contactslist-tax{
+    padding: 10px 20px;
+    button{
+        float: right;
+    }
 }
 </style>
