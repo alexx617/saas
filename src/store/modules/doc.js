@@ -31,7 +31,6 @@ export default {
             commit(SET_MENU, data);
         },
         SET_COMPONENT({ commit }, data) {
-            log(data)
             if (data.length < 2) { throw new Error('SET_COMPONENT未设置值'); };
             commit(SET_COMPONENT, data);
         }

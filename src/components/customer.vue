@@ -20,10 +20,10 @@
 				</li>
 				<li>
 					<p>公司名称:</p>
-					<Input placeholder="请输入" style="width: 200px"></Input>
+					<Input placeholder="请输入" v-model="form.name" style="width: 200px"></Input>
 				</li>
 				<li>
-					<Button type="primary" size="large" @click="changeMenu">统计</Button>
+					<Button type="primary" size="large" @click="getAjax">统计</Button>
 				</li>
 			</ul>
 
@@ -50,15 +50,15 @@
 					</Menu>
 				</div>-->
 				<div class="ui-home-table-right">
-					<Table width="10%" height="520" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
+					<Table highlight-row width="10%" height="520" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 {{form.size}} 条  共  {{form.numberOfElements}} 条</p>
+						<p>当前第 1 到 {{form.size}} 条  共  {{form.totalElements}} 条</p>
 					</div>
 					<div class="ui-home-table-page-right">
-						<Page :total="form.numberOfElements" show-elevator></Page>
+						<Page :total="form.totalElements" show-elevator @on-change="gopage"></Page>
 					</div>
 				</div>
 			</div>
@@ -125,15 +125,25 @@ export default {
 				form:{//客户列表分页
 					page:0,
 					size:10,
+					name:''//公司名称
 				},
-				content:[]//客户列表
+				content:[],//客户列表
 				
 		};
 	},
 	components:{pullbox},
 	created() {
 		this.SET_MENU(false);
-		ajax.contractList(this.form)
+		this.getAjax();
+	},
+	methods : {
+		...mapActions(['SET_MENU','SET_COMPONENT']),
+		changeMenu(row){
+			this.SET_MENU(true);
+			this.SET_COMPONENT(['customerList', row])
+		},
+		getAjax(){
+			ajax.contractList(this.form)
 			.then(rs => {
 				if (rs.success) {
 					this.content = rs.data.content;//客户列表
@@ -145,12 +155,13 @@ export default {
 			.catch(error => {
 				this.$tip(error);
 			});
-	},
-	methods : {
-		...mapActions(['SET_MENU','SET_COMPONENT']),
-		changeMenu(row){
-			this.SET_MENU(true);
-			this.SET_COMPONENT(['customerList', row])
+		},
+		gopage(page){
+			this.form.page = page-1;
+			this.getAjax();
+		},
+		query(){
+
 		}
 	},
 }

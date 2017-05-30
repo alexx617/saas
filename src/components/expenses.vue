@@ -39,7 +39,7 @@
 
 			<div class="ui-home-table">
 				<div class="ui-home-table-right">
-					<Table width='100px' height="520" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
+					<Table highlight-row width='100px' height="520" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
 				</div>
 				
 				<div class="ui-home-table-page">
