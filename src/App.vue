@@ -30,8 +30,9 @@ export default {
 <style lang='less'>
     @import 'styles/style.less';
 .ui-app-main{
-	padding-left: 80px;
+	margin-left: 80px;
 	background: @gray;
 	height: 100%;
+	padding-top: 55px;
 }
 </style>

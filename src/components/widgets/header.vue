@@ -44,16 +44,17 @@ export default {
 @import "../../styles/style.less";
 .ui-header-box{
     width: 100%;
-    height: 60px;
+    height: 55px;
     padding-left: 80px;
     padding-right: 20px;
-    // background: red;
+    position: absolute;
     color: #8d8c8c;
+    background: #fff;
 }
 .ui-header-left{
     margin-left: 20px;
     width: 220px;
-    height: 60px;
+    height: 55px;
     display: inline-block;
     background: url("@{w-img}logo-oa.png") left 50% no-repeat;
 }
@@ -63,8 +64,8 @@ export default {
     li{
         display: inline-block;
         min-width:80px; 
-        height: 60px;
-        line-height: 4.5;
+        height: 55px;
+        line-height: 4;
         text-align: center;
         cursor: pointer;
     }

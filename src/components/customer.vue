@@ -28,7 +28,7 @@
 			</ul>
 
 			<div class="ui-home-table">
-				<div class="ui-home-table-left">
+				<!--<div class="ui-home-table-left">
 					<Menu active-name="1">
 						<Menu-group title="客户名称">
 							<Menu-item name="1">
@@ -48,9 +48,9 @@
 							</Menu-item>
 						</Menu-group>
 					</Menu>
-				</div>
+				</div>-->
 				<div class="ui-home-table-right">
-					<Table width="10%" height="615" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
+					<Table width="10%" height="520" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page">
@@ -77,6 +77,10 @@ export default {
 	data () {
 		return {
 				columns1: [
+                    {
+                        title: '客户名称',
+                        key: 'name'
+                    },
                     {
                         title: '客户简称',
                         key: 'name'
@@ -155,57 +159,6 @@ export default {
 
 <style lang='less' scoped>
     @import '../styles/style.less';
-.ui-home-input{
-	background: #fff;
-	padding: 20px 20px 58px 20px;
-	p,li{
-		display: inline-block;
-	}
-	li:not(:first-child){
-		margin-left: 20px;
-	}
-	li:last-child{
-		margin-left: 40px;
-	}
-}
-.ui-home-table{
-	.pd(10px);
-	width: 100%;
-	height: 635px;
-	position: absolute;
-	top:60px;
-	left:5px;
-	ul{
-		height: 100%;
-	}
-}
 
-.ivu-menu{
-	overflow: auto;
-}
-.ui-home-table-left{
-	float: left;
-	width: 16%;
-	height: 100%;
-}
-.ui-home-table-right{
-	width: 82%;
-	float: left;
-}
-.ui-home-table-page-left{
-	padding: 30px 0;
-	float: left;
-	p{
-		margin-left: 230px;
-	}
-}
-.ui-home-table-page-right{
-	padding: 20px 0;
-	float: right;
-}
-.ivu-table-wrapper{
-    // margin-left: -5px;
-    border-left: 1px solid @blue;
-    z-index: 3;
-}
+
 </style>

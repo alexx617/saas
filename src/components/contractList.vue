@@ -14,7 +14,7 @@
 				<div class="ui-contractList-msgBox">
 					<Form :model="formItem" :label-width="80">
 						<Form-item label="合同客户:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px"  icon="close-circled" @on-click='formItem.input=""' v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="业务类型:">
 							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
@@ -130,6 +130,9 @@ export default {
         list: state => state.doc.listData.data,
     }),
     methods : {
+		clear(a){
+			log(a)
+		}
 	}
 }
 

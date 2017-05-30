@@ -5,7 +5,7 @@
 			<p>合同</p>
 		</div>
 		<div class="ui-main">
-			<ul class="ui-contractinput">
+			<ul class="ui-home-input">
 				<li>
 					<p>会计人员:</p>
 					<Select style="width:200px">
@@ -27,38 +27,17 @@
 				</li>
 			</ul>
 
-			<div class="ui-contracttable">
-				<div class="ui-contracttable-left">
-					<Menu active-name="1">
-						<Menu-group title="合同编号">
-							<Menu-item name="1">
-								阿里巴巴集团
-							</Menu-item>
-							<Menu-item name="2">
-								阿里巴巴集团
-							</Menu-item>
-							<Menu-item name="3">
-								阿里巴巴集团
-							</Menu-item>
-							<Menu-item name="4">
-								阿里巴巴集团
-							</Menu-item>
-							<Menu-item name="5">
-								阿里巴巴集团
-							</Menu-item>
-						</Menu-group>
-					</Menu>
-				</div>
-				<div class="ui-contracttable-right">
-					<Table width="10%" height="615" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
+			<div class="ui-home-table">
+				<div class="ui-home-table-right">
+					<Table width="10%" height="520" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
-				<div class="ui-contracttable-page">
-					<div class="ui-contracttable-page-left">
-						<p>当前第 1 到 8 条  共  8 条</p>
+				<div class="ui-home-table-page">
+					<div class="ui-home-table-page-left">
+						<p>当前第 1 到 {{form.size}} 条  共  {{form.numberOfElements}} 条</p>
 					</div>
-					<div class="ui-contracttable-page-right">
-						<Page :total="100" show-elevator></Page>
+					<div class="ui-home-table-page-right">
+						<Page :total="form.numberOfElements" show-elevator></Page>
 					</div>
 				</div>
 			</div>
@@ -77,6 +56,10 @@ export default {
 	data () {
 		return {
 				columns1: [
+                    {
+                        title: '合同编号',
+                        key: 'name'
+                    },
                     {
                         title: '客户简称',
                         key: 'name'
@@ -155,57 +138,5 @@ export default {
 
 <style lang='less' scoped>
     @import '../styles/style.less';
-.ui-contractinput{
-	background: #fff;
-	padding: 20px 20px 58px 20px;
-	p,li{
-		display: inline-block;
-	}
-	li:not(:first-child){
-		margin-left: 20px;
-	}
-	li:last-child{
-		margin-left: 40px;
-	}
-}
-.ui-contracttable{
-	.pd(10px);
-	width: 100%;
-	height: 635px;
-	position: absolute;
-	top:60px;
-	left:5px;
-	ul{
-		height: 100%;
-	}
-}
 
-.ivu-menu{
-	overflow: auto;
-}
-.ui-contracttable-left{
-	float: left;
-	width: 16%;
-	height: 100%;
-}
-.ui-contracttable-right{
-	width: 82%;
-	float: left;
-}
-.ui-contracttable-page-left{
-	padding: 30px 0;
-	float: left;
-	p{
-		margin-left: 230px;
-	}
-}
-.ui-contracttable-page-right{
-	padding: 20px 0;
-	float: right;
-}
-.ivu-table-wrapper{
-    // margin-left: -5px;
-    border-left: 1px solid @blue;
-    z-index: 3;
-}
 </style>
