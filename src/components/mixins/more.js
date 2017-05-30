@@ -16,7 +16,6 @@ export default {
     methods: {
         lookMore(me) {
             this.$set(this.showMore, me, !this.showMore[me])
-                // this.showMore[me] = !this.showMore[me];
             this.showMore[me] ? this.moreString[me] = '收起' : this.moreString[me] = '更多';
         }
     },
