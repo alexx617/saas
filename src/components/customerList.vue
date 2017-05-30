@@ -358,9 +358,6 @@ export default {
     created() {
         this.getAjax();
 	},
-    updated() {
-        this.getAjax();
-    },
     methods : {
         getAjax(){
             ajax.contractPullInit(this.list)
