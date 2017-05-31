@@ -351,11 +351,7 @@ import { mapState } from 'vuex'
 export default {
     mixins: [moreMixin],
     data () {
-        return {
-            tt:{
-
-            }
-        };
+        return {};
     },
     components:{},
     computed: mapState({
@@ -377,10 +373,6 @@ export default {
 			.catch(error => {
 				this.$tip(error);
 			});
-        },
-        testmore(tes){
-            // this.tt[tes]=!this.tt[tes]);
-            log(this.tt)
         }
     }
 }

@@ -54,7 +54,7 @@ export default {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
-	z-index: 10;
+	z-index: 2;
 }
 .ivu-menu{
 	height:100%;

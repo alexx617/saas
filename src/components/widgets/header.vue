@@ -50,7 +50,7 @@ export default {
     position: absolute;
     color: #8d8c8c;
     background: #fff;
-	z-index: 9;
+	z-index: 1;
 }
 .ui-header-left{
     margin-left: 20px;

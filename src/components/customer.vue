@@ -159,9 +159,6 @@ export default {
 		gopage(page){
 			this.form.page = page-1;
 			this.getAjax();
-		},
-		query(){
-
 		}
 	},
 }
@@ -169,7 +166,6 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../styles/style.less';
-
+@import '../styles/style.less';
 
 </style>
