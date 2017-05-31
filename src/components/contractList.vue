@@ -14,28 +14,28 @@
 				<div class="ui-contractList-msgBox">
 					<Form :model="formItem" :label-width="80">
 						<Form-item label="合同客户:">
-							<Input style="width: 200px"  icon="close-circled" @on-click='formItem.input=""' v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="业务类型:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="经手人:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" :icon="icon.input3" @on-change="clearInput('input3')" @on-click="formItem.input3='',icon.input3=''"   v-model="formItem.input3" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="提成金额:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="介绍人:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="支付周期:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="合同号:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="服务费:">
-							<Input style="width: 200px"  icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						
 						<Form-item label="是否预付">
@@ -45,10 +45,10 @@
 							</Radio-group>
 						</Form-item>
 						<Form-item label="支付金额:">
-							<Input style="width: 200px" icon="close-circled" v-model="formItem.input" placeholder="请输入"></Input>
+							<Input style="width: 200px" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item style="width: 100%" label="备注:">
-							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
+							<Input style="width: 98%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
 						</Form-item>
 					</Form>
 				</div>
@@ -111,9 +111,12 @@ export default {
         return {
             formItem: {
 				input: '',
+				input2: '',
+				input3: '',
 				radio: 'yes',
 				textarea: ''
 			},
+			icon:{},
 			baseData: [{
 				expand: true,
 				title: '法人变更',
@@ -130,8 +133,8 @@ export default {
         list: state => state.doc.listData.data,
     }),
     methods : {
-		clear(a){
-			log(a)
+		clearInput(a){
+			this.formItem[a]==''?this.icon[a]='':this.icon[a]='close-circled'
 		}
 	}
 }
