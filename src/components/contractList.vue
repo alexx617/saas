@@ -133,8 +133,8 @@ export default {
         list: state => state.doc.listData.data,
     }),
     methods : {
-		clearInput(a){
-			this.formItem[a]==''?this.icon[a]='':this.icon[a]='close-circled'
+		clearInput(me){
+			this.formItem[me]==''?this.icon[me]='':this.icon[me]='close-circled'
 		}
 	}
 }
