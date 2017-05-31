@@ -1,5 +1,5 @@
 <template>
-	<div class="ui-sidebar-menu">
+	<div class="ui-sidebar-menu" @click="closeMenu()">
 		
 		<Menu @on-select="$go" width="84px" theme="dark" :active-name="$route.name">
 			<div class='ui-sidebar-logo'></div>
@@ -28,6 +28,7 @@
 
 <script>
 const log = console.log;
+import { mapActions } from 'vuex'
 export default {
 	data () {
 		return {
@@ -39,7 +40,10 @@ export default {
 		
 	},
 	methods : {
-		
+		...mapActions(['SET_MENU']),
+        closeMenu(){
+			this.SET_MENU(false);
+		},
 	},
 }
 

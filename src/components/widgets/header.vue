@@ -1,6 +1,6 @@
 <template>
-    <div class="ui-header-box">
-        <!--<div class="ui-header-left"></div>-->
+    <div class="ui-header-box" @click="closeMenu()">
+        <div class="ui-header-left"></div>
         <div class="ui-header-right">
             <ul>
                 <li class="ui-header-icon ui-header-icon0">
@@ -23,6 +23,7 @@
 
 <script>
 const log = console.log;
+import { mapActions } from 'vuex'
 export default {
     data () {
         return {
@@ -34,7 +35,10 @@ export default {
         
     },
     methods : {
-        
+		...mapActions(['SET_MENU']),
+        closeMenu(row){
+			this.SET_MENU(false);
+		},
     },
 }
 

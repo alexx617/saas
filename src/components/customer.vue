@@ -1,6 +1,6 @@
 <template>
 	<div class="all">
-		<div class="ui-title">
+		<div class="ui-title" @click="closeMenu()">
 			<span class="ui-title-logo ui-title-logo-service"></span>
 			<p>服务</p>
 		</div>
@@ -133,7 +133,7 @@ export default {
 	},
 	components:{pullbox},
 	created() {
-		this.SET_MENU(false);
+		this.closeMenu();
 		this.getAjax();
 	},
 	methods : {
@@ -159,7 +159,10 @@ export default {
 		gopage(page){
 			this.form.page = page-1;
 			this.getAjax();
-		}
+		},
+        closeMenu(){
+			this.SET_MENU(false);
+		},
 	},
 }
 
