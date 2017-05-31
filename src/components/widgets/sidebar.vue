@@ -54,13 +54,14 @@ export default {
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
+	z-index: 10;
 }
 .ivu-menu{
 	height:100%;
 }
 .ui-sidebar-logo{
 	width:100%;
-	height:60px;
+	height:50px;
 	background:url("@{w-img}logo.png") 50% no-repeat;
 	background-color:@blue;
 	background-size: 40%;

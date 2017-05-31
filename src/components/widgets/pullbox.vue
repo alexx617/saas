@@ -45,7 +45,7 @@ export default {
     background-color: #f5f5f5;
     background-size: cover;
     transition: all 0.3s ease;
-    z-index: 8;
+    z-index: 11;
     overflow: auto;
     -webkit-transform: translateX(220%) translate3d(0, 0, 0);
     box-shadow: -1px -1px 5px @blue;

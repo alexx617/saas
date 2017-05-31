@@ -30,16 +30,16 @@
 				</li>
 				<li class="ui-exp-time">
 					<p>时间范围:</p>
-					<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+					<Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
 					至
-					<Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+					<Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
 				</li>
 				<Button type="primary" size="large">统计</Button>
 			</ul>
 
 			<div class="ui-home-table">
 				<div class="ui-home-table-right">
-					<Table highlight-row width='100px' height="520" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
+					<Table highlight-row width='100px' height="450" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
 				</div>
 				
 				<div class="ui-home-table-page">

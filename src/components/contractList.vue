@@ -192,7 +192,6 @@ export default {
 	border-bottom: 1px solid #dddddd;
 }
 .ui-contractList-coll{
-	margin-top: 10px;
 	margin-bottom: 20px;
 	p{
 		margin-left: 10px;
@@ -222,6 +221,7 @@ export default {
 }
 .ui-contractList-transfer{
 	background: #F5F5F5;
+	border-bottom: none;
 }
 .ui-contractList-transfer-left,
 .ui-contractList-transfer-right{
@@ -241,5 +241,8 @@ export default {
 	display: inline-block;
 	min-height: 200px;
 	background: url("@{img}icon-tree.png") center no-repeat;
+}
+.ivu-form-item{
+	margin-bottom: 12px;
 }
 </style>

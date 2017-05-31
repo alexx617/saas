@@ -1,6 +1,6 @@
 <template>
     <div class="ui-header-box">
-        <div class="ui-header-left"></div>
+        <!--<div class="ui-header-left"></div>-->
         <div class="ui-header-right">
             <ul>
                 <li class="ui-header-icon ui-header-icon0">
@@ -44,17 +44,18 @@ export default {
 @import "../../styles/style.less";
 .ui-header-box{
     width: 100%;
-    height: 55px;
+    height: 50px;
     padding-left: 80px;
     padding-right: 20px;
     position: absolute;
     color: #8d8c8c;
     background: #fff;
+	z-index: 9;
 }
 .ui-header-left{
     margin-left: 20px;
     width: 220px;
-    height: 55px;
+    height: 50px;
     display: inline-block;
     background: url("@{w-img}logo-oa.png") left 50% no-repeat;
 }
@@ -64,7 +65,7 @@ export default {
     li{
         display: inline-block;
         min-width:80px; 
-        height: 55px;
+        height: 50px;
         line-height: 4;
         text-align: center;
         cursor: pointer;
