@@ -87,7 +87,25 @@ export default {
                     },
                     {
                         title: '客户级别',
-                        key: 'level'
+                        key: 'level',
+						render: (h, params) => {
+							var level = '';
+							switch (params.row.level) {
+								case 'aa01':
+									level='等级1'
+									break;
+								case 'aa02':
+									level='等级2'
+									break;
+								case 'aa03':
+									level='等级3'
+									break;
+								default:
+									level='暂无'
+									break;
+							}
+							return h(params.row.level,level)
+                        }
                     },
                     {
                         title: '登记时间',
