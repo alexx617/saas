@@ -1,6 +1,6 @@
 <template>
 	<div class="all">
-		<div class="ui-title">
+		<div class="ui-title" @click="closeMenu()">
 			<span class="ui-title-logo ui-title-logo-service"></span>
 			<p>合同</p>
 		</div>
@@ -122,15 +122,17 @@ export default {
 	},
 	components:{pullbox},
 	created() {
-		this.SET_MENU(false);
-		
+		this.closeMenu();
 	},
 	methods : {
 		...mapActions(['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['contractList',row])
-		}
+		},
+        closeMenu(){
+			this.SET_MENU(false);
+		},
 	},
 }
 
