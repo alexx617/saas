@@ -362,7 +362,7 @@ export default {
 	},
     methods : {
         getAjax(){
-            ajax.contractPullInit(this.list)
+            ajax.customer_PullInit(this.list)
 			.then(rs => {
 				if (rs.success) {
                     

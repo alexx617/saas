@@ -1,6 +1,6 @@
 <template>
 	<div class="all">
-		<div class="ui-title" @click="closeMenu()">
+		<div class="ui-title" @click="$closePullBox()">
 			<span class="ui-title-logo ui-title-logo-service"></span>
 			<p>服务</p>
 		</div>
@@ -134,7 +134,7 @@ export default {
 			};
 		})
 		.catch(error => {
-			this.$tip(error);
+			this.$tip('请稍候重试');
 		});
 	},
 	methods : {
@@ -155,7 +155,7 @@ export default {
 				};
 			})
 			.catch(error => {
-				this.$tip(error);
+				this.$tip('请稍候重试');
 			});
 		},
 		gopage(page){

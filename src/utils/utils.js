@@ -22,6 +22,11 @@ export default {
             title: '提醒',
             desc: msg
         });
+    },
+
+    // 关闭拉出框
+    $closePullBox: function() {
+        this.$store.dispatch('SET_MENU', false)
     }
 
 

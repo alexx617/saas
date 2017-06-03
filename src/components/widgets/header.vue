@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-header-box" @click="closeMenu()">
+    <div class="ui-header-box" @click="$closePullBox()">
         <!--<div class="ui-header-left"></div>-->
         <div class="ui-header-right">
             <ul>
@@ -23,7 +23,6 @@
 
 <script>
 const log = console.log;
-import { mapActions } from 'vuex'
 export default {
     data () {
         return {
@@ -35,10 +34,7 @@ export default {
         
     },
     methods : {
-		...mapActions(['SET_MENU']),
-        closeMenu(row){
-			this.SET_MENU(false);
-		},
+
     },
 }
 
