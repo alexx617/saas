@@ -26,7 +26,7 @@
 					<Button type="primary" size="large" @click="getAjax">统计</Button>
 				</li>
 				<li>
-					<Button type="primary" size="large" @click="getAjax">新增客户</Button>
+					<Button type="primary" size="large" @click="addCustomer">新增客户</Button>
 				</li>
 			</ul>
 
@@ -145,6 +145,10 @@ export default {
 		changeMenu(row){
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['customerList', row])
+		},
+		addCustomer(){
+			this.SET_MENU(true);
+			this.SET_COMPONENT(['customerAdd', null])
 		},
 		getAjax(){
 			ajax.customer_List(this.form)
