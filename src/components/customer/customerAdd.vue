@@ -12,11 +12,13 @@
 							<Input style="width: 200px" :icon="icon.no" @on-change="clearInput('no')" @on-click="formItem.no='',icon.no=''" v-model="formItem.no" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="客户等级:">
-							<Input style="width: 200px" :icon="icon.level" @on-change="clearInput('level')" @on-click="formItem.level='',icon.level=''" v-model="formItem.level" placeholder="请输入"></Input>
+							<Select v-model="formItem.level" clearable style="width:200px">
+								<Option v-for="item in selectList.level" :value="item.code" :key="item">{{ item.name }}</Option>
+							</Select>
 						</Form-item>
 						<Form-item label="注册类型:">
 							<Select v-model="formItem.zclx" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.zclx" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="创建时间:">
@@ -24,12 +26,12 @@
 						</Form-item>
 						<Form-item label="客户来源:">
 							<Select v-model="formItem.source" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.source" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="客户行业:">
 							<Select v-model="formItem.industry" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.industry" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 	
@@ -49,7 +51,7 @@
 					<div class="ui-customerAdd-msgBox">
 						<Form-item label="取票方式:">
 							<Select v-model="formItem.fetchType" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.fetchType" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="取票人:">
@@ -95,7 +97,7 @@
 						</Form-item>
 						<Form-item label="登记机关:">
 							<Select v-model="formItem.djjg" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.registerJG" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="组织机构编码:">
@@ -143,7 +145,7 @@
 						</Form-item>
 						<Form-item label="银行开户行:">
 							<Select v-model="formItem.bankOpen" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.bank" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="银行账号:">
@@ -158,12 +160,12 @@
 						</Form-item>
 						<Form-item label="所属国税:">
 							<Select v-model="formItem.stateTax" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.stateTax" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="所属地税:">
 							<Select v-model="formItem.localTax" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item in selectList.localTax" :value="item.code" :key="item">{{ item.name }}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="个税密码:">
@@ -245,7 +247,8 @@ export default {
 				]
 			},
 			icon: {},
-			shareIcon: ''
+			shareIcon: '',
+			selectList:{}
 		};
 	},
 	created() {
@@ -254,7 +257,7 @@ export default {
 		ajax.customer_Add()
 			.then(rs => {
 				if (rs.success) {
-
+					this.selectList = rs.data;
 				} else {
 					this.$tip(rs.message);
 				};

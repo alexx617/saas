@@ -80,8 +80,8 @@ export default {
     //客户 拉出框 新增客户
     customer_Add(data) {
         return fetch({
-            method: 'post',
-            url: `/api/customer`,
+            method: 'get',
+            url: `/api/customer/formInitData`,
         })
     }
 }
