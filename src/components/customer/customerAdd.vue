@@ -271,7 +271,7 @@ export default {
 	created() {
 		this.linkageCity.provinceList = city.provinceList;
 		let now = new Date();
-		this.formItem.createDate = dateFormat(now, "isoDate");
+		// this.formItem.createDate = dateFormat(now, "isoDate");
 		ajax.customer_Add()
 			.then(rs => {
 				if (rs.success) {

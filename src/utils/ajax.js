@@ -33,9 +33,9 @@ export function fetch(opt) {
 // 发送请求前处理数据
 axios.interceptors.request.use(config => {
     iView.LoadingBar.start()
-    if (config.method === 'post') {
-        config.data = qs.stringify(config.data);
-    }
+        // if (config.method === 'post') {
+        //     config.data = qs.stringify(config.data);
+        // }
     return config;
 }, error => {
     iView.LoadingBar.finish();
@@ -48,9 +48,9 @@ axios.interceptors.response.use(res => {
     return res;
 }, error => {
     iView.LoadingBar.finish();
-    // if (error.response.status == '403') {
-    //     return Promise.resolve(error.response)
-    // }
+    if (error.response.status == '400') {
+        return Promise.resolve(error.response)
+    }
 });
 
 
