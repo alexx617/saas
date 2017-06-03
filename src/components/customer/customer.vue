@@ -1,6 +1,6 @@
 <template>
 	<div class="all">
-		<div class="ui-title" @click="$closePullBox()">
+		<div class="ui-title">
 			<span class="ui-title-logo ui-title-logo-service"></span>
 			<p>服务</p>
 		</div>
@@ -24,6 +24,9 @@
 				</li>
 				<li>
 					<Button type="primary" size="large" @click="getAjax">统计</Button>
+				</li>
+				<li>
+					<Button type="primary" size="large" @click="getAjax">新增客户</Button>
 				</li>
 			</ul>
 
@@ -49,7 +52,7 @@
 <script>
 const log = console.log;
 import pullbox from 'widgets/pullbox.vue'
-import ajax from '../utils/ajax.js';
+import ajax from 'utils/ajax.js';
 import { mapActions } from 'vuex'
 
 export default {
@@ -158,7 +161,7 @@ export default {
 				this.$tip('请稍候重试');
 			});
 		},
-		gopage(page){
+		gopage(){
 			this.form.page = page-1;
 			this.getAjax();
 		},
@@ -171,6 +174,6 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../styles/style.less';
+@import '../../styles/style.less';
 
 </style>

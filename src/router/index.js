@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import customer from '@/components/customer'
+import customer from '@/components/customer/customer'
 import home from '@/components/home'
 import talk from '@/components/talk'
 import contract from '@/components/contract'

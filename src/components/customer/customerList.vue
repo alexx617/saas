@@ -18,7 +18,7 @@
                                         <td>公司名称:</td>
                                         <td>编号:</td>
                                     </tr>
-                                    <template v-if="showMore.infor">
+                                    <template v-if="!showMore.infor">
                                         <tr>
                                             <td colspan='2'>客户来源:</td>
                                         </tr>
@@ -49,7 +49,7 @@
                                         <td>记账类别:</td>
                                         <td>邮寄方式:</td>
                                     </tr>
-                                    <template v-if="showMore.account">
+                                    <template v-if="!showMore.account">
                                         <tr>
                                             <td colspan='2'>客户来源:</td>
                                         </tr>
@@ -345,8 +345,8 @@
 
 <script>
 const log = console.log;
-import moreMixin from './mixins/more';
-import ajax from '../utils/ajax.js';
+import moreMixin from 'mixins/more';
+import ajax from 'utils/ajax.js';
 import { mapState } from 'vuex'
 export default {
     mixins: [moreMixin],
@@ -381,7 +381,7 @@ export default {
 
 <style lang='less' scoped>
 
-    @import '../styles/style.less';
+    @import '../../styles/style.less';
 .ui-menu-title{
     padding:20px 20px 0 20px;
     font-size: 18px;
@@ -419,7 +419,7 @@ export default {
     }
 }
 .ui-menu-infor-icon0{
-    background: url("@{img}icon-infor.png") left no-repeat;
+    background: url("@{w-img}icon-infor.png") left no-repeat;
 }
 .ui-menu-more{
     text-align: center;
@@ -454,7 +454,7 @@ export default {
     border-left: 2px solid @blue;
 }
 .ui-menu-infor-app{
-    background: url("@{img}icon-app.png") 95% 5% no-repeat;
+    background: url("@{w-img}icon-app.png") 95% 5% no-repeat;
 }
 .ui-menu-infor-Contactslist-add{
     margin-right: 35px;
@@ -565,20 +565,20 @@ export default {
     margin: 0 auto;
 }
 .ui-sele-bottom{
-    background: url("@{img}icon-sele-bottom.png") 2% no-repeat;
+    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
     background-size: 12%;
 }
 
 .ui-sele-right{
-    background: url("@{img}icon-sele-right.png") 2% no-repeat;
+    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
     background-size: 9%;
 }
 .ui-task-bottom{
-    background: url("@{img}icon-sele-bottom.png") 2% no-repeat;
+    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
     background-size: 11%;
 }
 .ui-task-right{
-    background: url("@{img}icon-sele-right.png") 2% no-repeat;
+    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
     background-size: 8%;
 }
 .ui-Contactslist-task{
