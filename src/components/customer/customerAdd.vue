@@ -35,7 +35,9 @@
 								</Select>
 							</Form-item>
 							<Form-item label="创建时间:">
-								<Date-picker type="date" style="width:200px" placeholder="选择日期"></Date-picker>
+								<Input style="width: 200px" 
+								disabled
+								v-model="formItem.createDate"></Input>
 							</Form-item>
 							<Form-item label="客户来源:">
 								<Select v-model="formItem.source" clearable style="width:200px">
@@ -285,7 +287,7 @@
 
 <script>
 const log = console.log;
-import { mapState } from 'vuex'
+import dateFormat from 'dateFormat'
 export default {
     data () {
         return {
@@ -327,31 +329,16 @@ export default {
 				localTax:'',
 				personTaxPassword:'',
 				stateTaxPassword:'',
-				declarePassword:'',
-
-
-				input: '',
-				input2: '',
-				input3: '',
-				radio: 'yes',
-				textarea: ''
+				declarePassword:''
 			},
-			icon:{},
-			baseData: [{
-				expand: true,
-				title: '法人变更',
-				children: [{
-					title: '地址变更',
-					expand: true,
-					disabled: false
-				}]
-			}]
+			icon:{}
         };
     },
+	created () {
+		let now = new Date();
+		this.formItem.createDate = dateFormat(now, "isoDate");
+	},
     components:{},
-    computed: mapState({
-        list: state => state.doc.listData.data,
-    }),
     methods : {
 		clearInput(me){
 			this.formItem[me]==''?this.icon[me]='':this.icon[me]='close-circled'
