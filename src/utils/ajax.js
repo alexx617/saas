@@ -55,7 +55,7 @@ axios.interceptors.response.use(res => {
 
 
 export default {
-    //客户initList和查询
+    //客户 initList和查询
     customer_List(data) {
         return fetch({
             method: 'get',
@@ -63,7 +63,7 @@ export default {
             data
         })
     },
-    //客户拉出框init
+    //客户 拉出框 init
     customer_PullInit(data) {
         return fetch({
             method: 'get',
@@ -75,6 +75,13 @@ export default {
         return fetch({
             method: 'get',
             url: `/api/customer/listInitData`,
+        })
+    },
+    //客户 拉出框 新增客户
+    customer_Add(data) {
+        return fetch({
+            method: 'post',
+            url: `/api/customer`,
         })
     }
 }
