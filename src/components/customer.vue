@@ -8,13 +8,13 @@
 			<ul class="ui-home-input">
 				<li>
 					<p>会计人员:</p>
-					<Select style="width:200px">
-						<Option>123123</Option>
+					<Select clearable v-model="form.kuaiji" style="width:200px">
+						<Option v-for="item in selectList.kuaiji" :value="item.code" :key="item">{{ item.name }}</Option>
 					</Select>
 				</li>
 				<li>
 					<p>审账人员:</p>
-					<Select style="width:200px">
+					<Select clearable style="width:200px">
 						<Option>123123</Option>
 					</Select>
 				</li>
@@ -28,37 +28,16 @@
 			</ul>
 
 			<div class="ui-home-table">
-				<!--<div class="ui-home-table-left">
-					<Menu active-name="1">
-						<Menu-group title="客户名称">
-							<Menu-item name="1">
-								领商致远有限公司
-							</Menu-item>
-							<Menu-item name="2">
-								领商致远有限公司
-							</Menu-item>
-							<Menu-item name="3">
-								领商致远有限公司
-							</Menu-item>
-							<Menu-item name="4">
-								领商致远有限公司
-							</Menu-item>
-							<Menu-item name="5">
-								领商致远有限公司
-							</Menu-item>
-						</Menu-group>
-					</Menu>
-				</div>-->
 				<div class="ui-home-table-right">
 					<Table highlight-row width="10%" height="450" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 {{form.size}} 条  共  {{form.totalElements}} 条</p>
+						<p>当前第 1 到 {{page.size}} 条  共  {{page.totalElements}} 条</p>
 					</div>
 					<div class="ui-home-table-page-right">
-						<Page :total="form.totalElements" show-elevator @on-change="gopage"></Page>
+						<Page :total="page.totalElements" :current="page.number" show-elevator @on-change="gopage"></Page>
 					</div>
 				</div>
 			</div>
@@ -89,21 +68,11 @@ export default {
                         title: '客户级别',
                         key: 'level',
 						render: (h, params) => {
-							var level = '';
-							switch (params.row.level) {
-								case 'aa01':
-									level='等级1'
-									break;
-								case 'aa02':
-									level='等级2'
-									break;
-								case 'aa03':
-									level='等级3'
-									break;
-								default:
-									level='暂无'
-									break;
-							}
+							var level = this.selectList.level.map(item=>{
+								if(params.row.level === item.code){
+									return item.name;
+								}
+							})
 							return h(params.row.level,level)
                         }
                     },
@@ -143,16 +112,30 @@ export default {
 				form:{//客户列表分页
 					page:0,
 					size:10,
-					name:''//公司名称
+					name:'',//公司名称
+					kuaiji:'',
 				},
+				page:{},
 				content:[],//客户列表
-				
+				selectList:{}
 		};
 	},
 	components:{pullbox},
 	created() {
 		this.closeMenu();
 		this.getAjax();
+		ajax.customer_Select()
+		.then(rs=>{
+			if (rs.success) {
+				this.selectList = rs.data;
+				log(this.selectList)
+			} else {
+				this.$tip(rs.message);
+			};
+		})
+		.catch(error => {
+			this.$tip(error);
+		});
 	},
 	methods : {
 		...mapActions(['SET_MENU','SET_COMPONENT']),
@@ -161,11 +144,12 @@ export default {
 			this.SET_COMPONENT(['customerList', row])
 		},
 		getAjax(){
-			ajax.contractList(this.form)
+			ajax.customer_List(this.form)
 			.then(rs => {
 				if (rs.success) {
 					this.content = rs.data.content;//客户列表
-					this.form = rs.data;//客户列表分页
+					this.page = rs.data;//客户列表分页
+					this.page.content.length <=0 ? this.page.number = 1 : this.page.number = this.page.number+1;
 				} else {
 					this.$tip(rs.message);
 				};
