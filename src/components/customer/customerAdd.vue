@@ -2,206 +2,197 @@
     <div>
         <div class="ui-menu-select">
             <div class="ui-customerAdd-msg">
-				<p class="ui-customerAdd-icon0">基本信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="客户名称:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="客户编号:">
-							<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="客户等级:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="注册类型:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="创建时间:">
-							<Date-picker type="date" style="width:200px" placeholder="选择日期"></Date-picker>
-						</Form-item>
-						<Form-item label="客户来源:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="客户行业:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						
-						<Form-item label="客户状态:">
-							<Radio-group v-model="formItem.radio">
-								<Radio label="yes">签约</Radio>
-								<Radio label="no">解约</Radio>
-							</Radio-group>
-						</Form-item>
+				<Form :model="formItem" :label-width="80">
+					<p class="ui-customerAdd-icon0">基本信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="客户名称:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="客户编号:">
+								<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="客户等级:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="注册类型:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="创建时间:">
+								<Date-picker type="date" style="width:200px" placeholder="选择日期"></Date-picker>
+							</Form-item>
+							<Form-item label="客户来源:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="客户行业:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							
+							<Form-item label="客户状态:">
+								<Radio-group v-model="formItem.radio">
+									<Radio label="yes">签约</Radio>
+									<Radio label="no">解约</Radio>
+								</Radio-group>
+							</Form-item>
 
-						<Form-item style="width: 100%" label="客户特征:">
-							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
-
-
-				<p class="ui-customerAdd-icon0">取票信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="取票人:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="取票人电话:">
-							<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="取票方式:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="省:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="市:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="区:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-
-						<Form-item style="width: 100%" label="街道:">
-							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
+							<Form-item style="width: 100%" label="客户特征:">
+								<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
 
 
-				<p class="ui-customerAdd-icon0">工商信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="工商编号:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="注册资本:">
-							<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="经营期限:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="成立时间:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="登记机关:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="组织机构编码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="经营范围:">
-							<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
-						</Form-item>
+					<p class="ui-customerAdd-icon0">取票信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="取票人:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="取票人电话:">
+								<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="取票方式:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="省:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="市:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="区:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
 
-						<Form-item style="width: 100%" label="注册地址:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
+							<Form-item style="width: 100%" label="街道:">
+								<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
 
 
-				<p class="ui-customerAdd-icon0">股东信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="股东姓名:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="银行开户行:">
-							<Radio-group v-model="formItem.radio">
-								<Radio label="1">女</Radio>
-								<Radio label="0">男</Radio>
-							</Radio-group>
-						</Form-item>
-						<Form-item label="身份证号码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="出资比例:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="股东类型:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="股东电话:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
+					<p class="ui-customerAdd-icon0">工商信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="工商编号:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="注册资本:">
+								<Input style="width: 200px" :icon="icon.input2" @on-change="clearInput('input2')" @on-click="formItem.input2='',icon.input2=''" v-model="formItem.input2" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="经营期限:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="成立时间:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="登记机关:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="组织机构编码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="经营范围:">
+								<Input style="width: 90%"  v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入"></Input>
+							</Form-item>
+
+							<Form-item style="width: 100%" label="注册地址:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
+
+
+					<p class="ui-customerAdd-icon0">股东信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="股东姓名:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="银行开户行:">
+								<Radio-group v-model="formItem.radio">
+									<Radio label="1">女</Radio>
+									<Radio label="0">男</Radio>
+								</Radio-group>
+							</Form-item>
+							<Form-item label="身份证号码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="出资比例:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="股东类型:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="股东电话:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
 
 
 
-				<p class="ui-customerAdd-icon0">银行信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="银行开户许可证明:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="银行开户行:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="银行账号:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
+					<p class="ui-customerAdd-icon0">银行信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="银行开户许可证明:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="银行开户行:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="银行账号:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
 
 
-				<p class="ui-customerAdd-icon0">税务信息:</p>
-				<div class="ui-customerAdd-msgBox">
-					<Form :model="formItem" :label-width="80">
-						<Form-item label="税务登记证号码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="所属国税:">
-							<Select clearable style="width:200px">
-								<Option>123123</Option>
-							</Select>
-						</Form-item>
-						<Form-item label="所属地税:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="个税密码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="国税下载密码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-						<Form-item label="综合申报密码:">
-							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
-						</Form-item>
-					</Form>
-				</div>
+					<p class="ui-customerAdd-icon0">税务信息:</p>
+					<div class="ui-customerAdd-msgBox">
+							<Form-item label="税务登记证号码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="所属国税:">
+								<Select clearable style="width:200px">
+									<Option>123123</Option>
+								</Select>
+							</Form-item>
+							<Form-item label="所属地税:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="个税密码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="国税下载密码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+							<Form-item label="综合申报密码:">
+								<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+							</Form-item>
+					</div>
 
 
+				</Form>
 				
 				<div class="ui-customerAdd-save">
 					<Button type="primary">保存</Button>
 				</div>
 
 			</div>
+			
         </div>
     </div>
 </template>
@@ -218,6 +209,17 @@ export default {
 				input3: '',
 				radio: 'yes',
 				textarea: ''
+			},
+			infor_list: {
+				name: '',
+				no: '',
+				level: '',
+				zclx: '',
+				createDate: '',
+				source: '',
+				industry: '',
+				feature: '',
+				status: '1'
 			},
 			icon:{},
 			baseData: [{
@@ -365,5 +367,8 @@ export default {
 .ui-customerAdd-save{
 	float: right;
 	margin-bottom: 30px;
+}
+.ivu-select-dropdown{
+	
 }
 </style>
