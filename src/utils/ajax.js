@@ -11,7 +11,7 @@ const log = console.log;
 
 axios.defaults.timeout = 5000;
 // axios.defaults.baseURL = 'http://dengxiaoying.vicp.io:35200';
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 export function fetch(opt) {
     var dataList = {
@@ -55,7 +55,7 @@ axios.interceptors.response.use(res => {
 
 
 export default {
-    //客户 initList和查询
+    //客户 主页 initList和查询
     customer_List(data) {
         return fetch({
             method: 'get',
@@ -70,18 +70,26 @@ export default {
             url: `/api/customer/${data.id}`,
         })
     },
-    //客户 下拉选框init
+    //客户 主页 获取select
     customer_Select(data) {
         return fetch({
             method: 'get',
             url: `/api/customer/listInitData`,
         })
     },
-    //客户 拉出框 新增客户
+    //客户 拉出框 新增客户 获取select
     customer_Add(data) {
         return fetch({
             method: 'get',
             url: `/api/customer/formInitData`,
+        })
+    },
+    //客户 拉出框 新增客户 保存数据
+    customer_AddSave(data) {
+        return fetch({
+            method: 'post',
+            url: `/api/customer`,
+            data
         })
     }
 }

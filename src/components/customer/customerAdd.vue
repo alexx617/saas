@@ -66,13 +66,13 @@
 							</Select>
 						</Form-item>
 						<Form-item label="市:">
-							<Select v-model="formItem.fetchCity" clearable style="width:200px">
-								<Option v-for="item,i in linkageCity.cityList" :value="item"></Option>
+							<Select @on-change="getDistrict" v-model="formItem.fetchCity" clearable style="width:200px">
+								<Option v-for="item,i in linkageCity.cityList" :value="i" :key="item">{{item}}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="区:">
 							<Select v-model="formItem.fetchArea" clearable style="width:200px">
-								<!--<Option v-for="item,i in districtList" :value="item">123123</Option>-->
+								<Option v-for="item,i in linkageCity.districtList" :value="i" :key="item">{{item}}</Option>
 							</Select>
 						</Form-item>
 	
@@ -181,7 +181,7 @@
 	
 				</Form>
 	
-				<div class="ui-customerAdd-save">
+				<div class="ui-customerAdd-save" @click='save'>
 					<Button type="primary">保存</Button>
 				</div>
 	
@@ -202,50 +202,50 @@ export default {
 			formItem: {
 				//基本信息
 				name: '',
-				no: '',
-				level: '',
-				zclx: '',
-				createDate: '',
-				source: '',
-				industry: '',
-				feature: '',
-				status: '1',
-				//取票方式
-				fetchPerson: '',
-				fetchType: '',
-				fetchTel: '',
-				fetchProvince: '',
-				fetchCity: '',
-				fetchArea: '',
-				fetchAddress: '',
-				//工商信息
-				gsbh: '',
-				zczb: '',
-				rjqx: '',
-				clsj: '',
-				djjg: '',
-				zzjg: '',
-				jyfw: '',
-				zcdz: '',
-				//银行信息
-				bankProve: '',
-				bankOpen: '',
-				bankNo: '',
-				//税务信息
-				taxNo: '',
-				stateTax: '',
-				localTax: '',
-				personTaxPassword: '',
-				stateTaxPassword: '',
-				declarePassword: '',
+				// no: '',
+				// level: '',
+				// zclx: '',
+				// createDate: '',
+				// source: '',
+				// industry: '',
+				// feature: '',
+				// status: '1',
+				// //取票方式
+				// fetchPerson: '',
+				// fetchType: '',
+				// fetchTel: '',
+				// fetchProvince: '',
+				// fetchCity: '',
+				// fetchArea: '',
+				// fetchAddress: '',
+				// //工商信息
+				// gsbh: '',
+				// zczb: '',
+				// rjqx: '',
+				// clsj: '',
+				// djjg: '',
+				// zzjg: '',
+				// jyfw: '',
+				// zcdz: '',
+				// //银行信息
+				// bankProve: '',
+				// bankOpen: '',
+				// bankNo: '',
+				// //税务信息
+				// taxNo: '',
+				// stateTax: '',
+				// localTax: '',
+				// personTaxPassword: '',
+				// stateTaxPassword: '',
+				// declarePassword: '',
 				//股东信息
-				partners: [
-					{
-						name: '',
-						ratio: '',
-						type: ''
-					}
-				]
+				// partners: [
+				// 	{
+				// 		name: '',
+				// 		ratio: '',
+				// 		type: ''
+				// 	}
+				// ]
 			},
 			icon: {},
 			shareIcon: '',
@@ -310,10 +310,25 @@ export default {
 		},
 		getCity(row){
 			this.linkageCity.cityList = [];
-			// this.linkageCity.cityList = city.cityList[row];
-			this.$set(this.linkageCity.cityList , this.linkageCity.cityList ,city.cityList[row])
-			log(this.linkageCity);
-			// this.$set(this.linkageCity, this.linkageCity.cityList, city.cityList[row]);
+			this.linkageCity.cityList = city.cityList[row];
+		},
+		getDistrict(row){
+			this.linkageCity.districtList = [];
+			this.linkageCity.districtList = city.districtList[row];
+		},
+		save(){
+			ajax.customer_AddSave(this.formItem)
+			.then(rs=>{
+				if (rs.success) {
+					// this.selectList = rs.data;
+					// log(this.selectList)
+				} else {
+					this.$tip(rs.message);
+				};
+			})
+			.catch(error => {
+				this.$tip('请稍候重试');
+			});
 		}
 	}
 }

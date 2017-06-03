@@ -51,8 +51,8 @@
 
 <script>
 const log = console.log;
-import pullbox from 'widgets/pullbox.vue'
-import ajax from 'utils/ajax.js';
+import pullbox from 'widgets/pullbox'
+import ajax from 'utils/ajax';
 import { mapActions } from 'vuex'
 
 export default {
