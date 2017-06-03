@@ -61,18 +61,18 @@
 							<Input style="width: 200px" :icon="icon.fetchTel" @on-change="clearInput('fetchTel')" @on-click="formItem.fetchTel='',icon.fetchTel=''" v-model="formItem.fetchTel" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="省:">
-							<Select v-model="formItem.fetchProvince" clearable style="width:200px">
-								<Option>123123</Option>
+							<Select @on-change="getCity" v-model="formItem.fetchProvince" clearable style="width:200px">
+								<Option v-for="item,i in linkageCity.provinceList" :value="i" :key="item">{{item}}</Option>
 							</Select>
 						</Form-item>
 						<Form-item label="市:">
 							<Select v-model="formItem.fetchCity" clearable style="width:200px">
-								<Option>123123</Option>
+								<Option v-for="item,i in linkageCity.cityList" :value="item"></Option>
 							</Select>
 						</Form-item>
 						<Form-item label="区:">
 							<Select v-model="formItem.fetchArea" clearable style="width:200px">
-								<Option>123123</Option>
+								<!--<Option v-for="item,i in districtList" :value="item">123123</Option>-->
 							</Select>
 						</Form-item>
 	
@@ -128,7 +128,7 @@
 								</Form-item>
 								<Form-item style="width:31%">
 									<Select placeholder='股东类型' clearable style="width:190px">
-										<Option>123123</Option>
+										<Option v-for="item in selecttype" :value="item.code" :key="item">{{ item.name }}</Option>
 									</Select>
 								</Form-item>
 								<div class="ui-customerAdd-del" @click="delShare(i)">
@@ -194,7 +194,8 @@
 <script>
 const log = console.log;
 import dateFormat from 'dateFormat'
-import ajax from 'utils/ajax.js'
+import ajax from 'utils/ajax'
+import city from 'utils/city'
 export default {
 	data() {
 		return {
@@ -248,10 +249,27 @@ export default {
 			},
 			icon: {},
 			shareIcon: '',
-			selectList:{}
+			selectList:{},
+			selecttype:[{
+				"code": "1",
+				"name": "法人"
+			},
+			{
+				"code": "2",
+				"name": "监视"
+			},
+			{
+				"code": "3",
+				"name": "普通"
+			}],
+			linkageCity:{
+				provinceList:null,
+				cityList:[]
+			}
 		};
 	},
 	created() {
+		this.linkageCity.provinceList = city.provinceList;
 		let now = new Date();
 		this.formItem.createDate = dateFormat(now, "isoDate");
 		ajax.customer_Add()
@@ -289,6 +307,13 @@ export default {
 					this.shareIcon = '';
 				}
 			}
+		},
+		getCity(row){
+			this.linkageCity.cityList = [];
+			// this.linkageCity.cityList = city.cityList[row];
+			this.$set(this.linkageCity.cityList , this.linkageCity.cityList ,city.cityList[row])
+			log(this.linkageCity);
+			// this.$set(this.linkageCity, this.linkageCity.cityList, city.cityList[row]);
 		}
 	}
 }
