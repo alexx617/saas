@@ -2,9 +2,6 @@
     <div>
         <div class="ui-menu-select">
             <div class="ui-customerAdd-msg">
-				<!--<div class="ui-customerAdd-save">
-					<Button type="primary">保存</Button>
-				</div>-->
 				<p class="ui-customerAdd-icon0">基本信息:</p>
 				<div class="ui-customerAdd-msgBox">
 					<Form :model="formItem" :label-width="80">
@@ -123,6 +120,37 @@
 				</div>
 
 
+				<p class="ui-customerAdd-icon0">股东信息:</p>
+				<div class="ui-customerAdd-msgBox">
+					<Form :model="formItem" :label-width="80">
+						<Form-item label="股东姓名:">
+							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+						</Form-item>
+						<Form-item label="银行开户行:">
+							<Radio-group v-model="formItem.radio">
+								<Radio label="1">女</Radio>
+								<Radio label="0">男</Radio>
+							</Radio-group>
+						</Form-item>
+						<Form-item label="身份证号码:">
+							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+						</Form-item>
+						<Form-item label="出资比例:">
+							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+						</Form-item>
+						<Form-item label="股东类型:">
+							<Select clearable style="width:200px">
+								<Option>123123</Option>
+							</Select>
+						</Form-item>
+						<Form-item label="股东电话:">
+							<Input style="width: 200px" :icon="icon.input" @on-change="clearInput('input')" @on-click="formItem.input='',icon.input=''" v-model="formItem.input" placeholder="请输入"></Input>
+						</Form-item>
+					</Form>
+				</div>
+
+
+
 				<p class="ui-customerAdd-icon0">银行信息:</p>
 				<div class="ui-customerAdd-msgBox">
 					<Form :model="formItem" :label-width="80">
@@ -167,6 +195,11 @@
 					</Form>
 				</div>
 
+
+				
+				<div class="ui-customerAdd-save">
+					<Button type="primary">保存</Button>
+				</div>
 
 			</div>
         </div>
@@ -221,14 +254,18 @@ export default {
         font-size: 18px;
         font-weight: bold;
     }
-    ul,li{
+    > ul{
+        display: inline-block;
+		float: right;
+    }
+	> li{
         display: inline-block;
 		float: right;
     }
 	ul{
 		margin-right: 20px;
 	}
-	li{
+	> li{
 		padding: 5px 20px;
 		cursor: pointer;
 		margin: 0 10px;
@@ -325,8 +362,8 @@ export default {
 	padding: 10px;
 	margin-top: 20px;
 }
-// .ui-customerAdd-save{
-// 	float: right;
-// 	margin-right: 40px;
-// }
+.ui-customerAdd-save{
+	float: right;
+	margin-bottom: 30px;
+}
 </style>
