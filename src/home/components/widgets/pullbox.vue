@@ -10,10 +10,10 @@
 
 <script>
 const log = console.log;
-import customerList from '../customer/customerList.vue'
-import customerAdd from '../customer/customerAdd.vue'
-import contractList from '../contractList.vue'
-import expensesList from '../expensesList.vue'
+import customerList from '../customer/customerList'
+import customerAdd from '../customer/customerAdd'
+import contractList from '../contractList'
+import expensesList from '../expensesList'
 import { mapState, mapActions } from 'vuex'
 export default {
     data() {

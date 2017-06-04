@@ -1,6 +1,5 @@
 <template>
 	<div class="ui-sidebar-menu" @click="$closePullBox()">
-		
 		<Menu @on-select="$go" width="84px" theme="dark" :active-name="$route.name">
 			<div class='ui-sidebar-logo'></div>
 			<Menu-item name="main">

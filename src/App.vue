@@ -1,23 +1,18 @@
 <template>
 	<div id="app">
-		<!-- <ui-head></ui-head>
-		<div class="ui-app-main"> -->
-			<router-view></router-view>
-		<!-- </div>
-		<ui-sidebar></ui-sidebar> -->
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
 
-// import uiHead from 'widgets/header.vue'
-// import uiSidebar from 'widgets/sidebar.vue'
 export default {
 	data () {
 		return {
+			
 		};
 	},
-	// components:{uiHead,uiSidebar},
+	components:{},
 	created() {
 		
 	},

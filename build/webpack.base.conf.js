@@ -20,18 +20,24 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.json', '.less'],
         alias: {
+            //公用
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
             'src': path.resolve(__dirname, '../src'),
-            'components': path.resolve(__dirname,'../src/components'),
-            'widgets': path.resolve(__dirname,'../src/components/widgets'),
-            'utils': path.resolve(__dirname,'../src/utils'),
-            'store': path.resolve(__dirname,'../src/store'),
-            'router': path.resolve(__dirname,'../src/router'),
-            'styles': path.resolve(__dirname,'../src/styles'),
+            'components': path.resolve(__dirname, '../src/components'),
+            'utils': path.resolve(__dirname, '../src/utils'),
             'static': path.resolve(__dirname, '../static'),
-            'assets': path.resolve(__dirname, '../src/assets'),
-            'mock': path.resolve(__dirname, '../src/mock'),
+            'store': path.resolve(__dirname, '../src/store'),
+
+            //home
+            'home-components': path.resolve(__dirname, '../src/home/components'),
+            'home-mixins': path.resolve(__dirname, '../src/home/components/mixins'),
+            'home-widgets': path.resolve(__dirname, '../src/home/components/widgets'),
+            'home-store': path.resolve(__dirname, '../src/home/components/store'),
+            'home-router': path.resolve(__dirname, '../src/home/components/router'),
+            'home-assets': path.resolve(__dirname, '../src/home/components/assets')
+
+
         }
     },
     module: {

@@ -8,8 +8,8 @@
 	</div>
 </template>
 <script>
-import uiHead from './components/widgets/header.vue'
-import uiSidebar from './components/widgets/sidebar.vue'
+import uiHead from 'home-widgets/header'
+import uiSidebar from 'home-widgets/sidebar'
 export default {
 	name: "home-main",
 	data() {
@@ -17,10 +17,7 @@ export default {
 
 		}
 	},
-	components: {
-		uiHead,
-		uiSidebar
-	}
+	components: { uiHead, uiSidebar }
 }
 </script>
 <style lang="less" scoped>
@@ -28,7 +25,6 @@ export default {
 #account-main {
 	height: 100%;
 }
-
 .ui-app-main {
 	margin-left: 80px;
 	background: @gray;

@@ -58,7 +58,7 @@
 
 <script>
 const log = console.log;
-import pullbox from './widgets/pullbox.vue'
+import pullbox from 'home-widgets/pullbox'
 import { mapActions } from 'vuex'
 
 export default {

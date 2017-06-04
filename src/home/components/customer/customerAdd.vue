@@ -193,7 +193,7 @@
 
 <script>
 const log = console.log;
-// import dateFormat from 'dateFormat'
+import dateFormat from 'dateFormat'
 import ajax from 'utils/ajax'
 import city from 'utils/city'
 export default {

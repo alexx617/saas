@@ -345,7 +345,7 @@
 
 <script>
 const log = console.log;
-import moreMixin from '../mixins/more';
+import moreMixin from 'home-mixins/more';
 import ajax from 'utils/ajax';
 import { mapState } from 'vuex'
 export default {
