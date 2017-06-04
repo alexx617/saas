@@ -25,7 +25,7 @@
 				<li>
 					<Button type="primary" size="large" @click="getAjax">统计</Button>
 				</li>
-				<li>
+				<li style="float: right;">
 					<Button type="primary" size="large" @click="addCustomer">新增客户</Button>
 				</li>
 			</ul>
