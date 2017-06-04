@@ -113,8 +113,7 @@
 						</Form-item>
 					</div>
 	
-					<p style="display:inline-block" class="ui-customerAdd-icon0">股东信息:</p>
-	
+					<!--<p style="display:inline-block" class="ui-customerAdd-icon0">股东信息:</p>
 					<div class="ui-customerAdd-msgBox ui-customerAdd-Share">
 						<Button style="float:right;margin-right:20px;margin-bottom:10px;" type="primary" @click="addShare">添加</Button>
 						<div class="clear"></div>
@@ -136,7 +135,7 @@
 								</div>
 							</div>
 						</template>
-					</div>
+					</div>-->
 	
 					<p class="ui-customerAdd-icon0">银行信息:</p>
 					<div class="ui-customerAdd-msgBox">
@@ -196,6 +195,9 @@ const log = console.log;
 import dateFormat from 'dateFormat'
 import ajax from 'utils/ajax'
 import city from 'utils/city'
+import rule from 'utils/rule'
+import homeRule from 'home-utils/homeRule'
+
 export default {
 	data() {
 		return {
@@ -239,13 +241,13 @@ export default {
 				stateTaxPassword: '',
 				declarePassword: '',
 				// 股东信息
-				partners: [
-					{
-						name: '',
-						ratio: '',
-						type: ''
-					}
-				]
+				// partners: [
+				// 	{
+				// 		name: '',
+				// 		ratio: '',
+				// 		type: ''
+				// 	}
+				// ]
 			},
 			icon: {},//清除input
 			shareIcon: '',//股东删除icon
@@ -264,20 +266,14 @@ export default {
 				provinceList:null,
 				cityList:[]
 			},
-			ruleValidate: {
-				name: [
-					{ required: true, message: '姓名不能为空', trigger: 'blur' }
-				],
-				no: [
-					{ required: true, message: '客户编号不能为空', trigger: 'blur' }
-				]
-			}
+			ruleValidate :{}//验证规则
 		};
 	},
 	created() {
 		this.linkageCity.provinceList = city.provinceList;//省市区列表
 		let now = new Date();
 		this.formItem.createDate = dateFormat(now, "isoDate");//创建时间
+		this.ruleValidate = rule.chk(homeRule.customerAdd_list);//验证规则
 		//init时获取所有select
 		ajax.customer_Add()
 			.then(rs => {
@@ -330,7 +326,7 @@ export default {
 		},
 		//输完所有信息后保存
 		save(name){
-			this.$refs[name].validate(valid=>{
+            this.$refs[name].validate(valid=>{
 				if (valid==false) return
 				ajax.customer_AddSave(this.formItem)
 				.then(rs=>{
@@ -344,8 +340,8 @@ export default {
 				.catch(error => {
 					this.$tip('请稍候重试');
 				});
-			})
-		}
+            })
+		},
 	}
 }
 

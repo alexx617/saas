@@ -165,7 +165,7 @@ export default {
 				this.$tip('请稍候重试');
 			});
 		},
-		gopage(){
+		gopage(page){
 			this.form.page = page-1;
 			this.getAjax();
 		},

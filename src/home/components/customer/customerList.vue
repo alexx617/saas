@@ -8,7 +8,8 @@
             <div class="ui-menu-tabs">
                 <Tabs size="small">
                     <Tab-pane label="基本信息">
-                        <Button style="float:right;margin-right:20px;" type="primary">保存</Button>
+                        <customerAdd></customerAdd>
+                        <!--<Button style="float:right;margin-right:20px;" type="primary">保存</Button>
                         <div class="clear"></div>
                         <ul class="ui-menu-infor">
                             <li>
@@ -73,55 +74,12 @@
                                     </tr>
                                 </table>
                             </li>
-                        </ul>
+                        </ul>-->
                     </Tab-pane>
 
 
                     <Tab-pane label="联系人">
-                        <div class="ui-menu-infor-Contactslist-add">
-                            <Button type="primary">添加合同</Button>
-                        </div>
-                        <div class="clear"></div>
-                        <ul class="ui-menu-infor-Contactslist">
-                            <li class="ui-menu-infor-Contactslist-active">
-                                <ul class="ui-menu-infor-Contactslist-p ui-menu-infor-app">
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="ui-menu-infor-Contactslist-active">
-                                <ul class="ui-menu-infor-Contactslist-p ui-menu-infor-app">
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                    <li>
-                                        <p>头衔：</p><span>xxxx</span>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <customerContract></customerContract>
                     </Tab-pane>
 
 
@@ -346,6 +304,8 @@
 <script>
 const log = console.log;
 import moreMixin from 'home-mixins/more';
+import customerAdd from './customerAdd';
+import customerContract from './customerContract';
 import ajax from 'utils/ajax';
 import { mapState } from 'vuex'
 export default {
@@ -353,7 +313,7 @@ export default {
     data () {
         return {};
     },
-    components:{},
+    components:{customerAdd,customerContract},
     computed: mapState('homeStore', {
         list: state => state.listData.data,
     }),
@@ -424,17 +384,7 @@ export default {
     text-align: center;
     cursor: pointer;
 }
-.ui-menu-infor-Contactslist{
-    &>li{
-        width: 43%;
-        margin: 20px;
-        display: inline-block;
-        background: #fff;
-        padding: .5px;
-        box-shadow: 2px 2px 5px #eee;
-        
-    }
-}
+
 .ui-menu-infor-Contactslist-p{
     padding: 5px;
     p{

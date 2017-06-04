@@ -34,9 +34,10 @@ module.exports = {
             'home-components': path.resolve(__dirname, '../src/home/components'),
             'home-mixins': path.resolve(__dirname, '../src/home/components/mixins'),
             'home-widgets': path.resolve(__dirname, '../src/home/components/widgets'),
-            'home-store': path.resolve(__dirname, '../src/home/components/store'),
-            'home-router': path.resolve(__dirname, '../src/home/components/router'),
-            'home-assets': path.resolve(__dirname, '../src/home/components/assets')
+            'home-store': path.resolve(__dirname, '../src/home/store'),
+            'home-router': path.resolve(__dirname, '../src/home/router'),
+            'home-utils': path.resolve(__dirname, '../src/home/utils'),
+            'home-assets': path.resolve(__dirname, '../src/home/assets')
 
 
         }
