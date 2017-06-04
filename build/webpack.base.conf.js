@@ -28,6 +28,7 @@ module.exports = {
             'utils': path.resolve(__dirname, '../src/utils'),
             'static': path.resolve(__dirname, '../static'),
             'store': path.resolve(__dirname, '../src/store'),
+            'styles': path.resolve(__dirname, '../src/styles'),
 
             //home
             'home-components': path.resolve(__dirname, '../src/home/components'),

@@ -25,6 +25,9 @@ export default {
         changeMenu: state => state.changeMenu,
         showList: state => state.listData.showList,
     }),
+    created () {
+        console.log(mapState);
+    },
     methods: {
         ...mapActions('homeStore', ['SET_MENU']),
         closeMenu() {

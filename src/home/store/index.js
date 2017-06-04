@@ -5,6 +5,7 @@ const SET_MENU = 'SET_MENU'; // 右侧拉出栏
 const SET_COMPONENT = 'SET_COMPONENT'; // 拉出栏显示哪个子组件
 
 export default {
+    namespaced: true,
 
     state: {
         changeMenu: false,

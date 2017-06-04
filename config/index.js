@@ -30,8 +30,8 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                //target: 'http://dengxiaoying.vicp.io:35200/',
-				target: 'http://localhost:8080/',
+                target: 'http://dengxiaoying.vicp.io:35200/',
+                // target: 'http://localhost:8080/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''
