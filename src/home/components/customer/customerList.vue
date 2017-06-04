@@ -79,7 +79,7 @@
 
 
                     <Tab-pane label="联系人">
-                        <customerContract></customerContract>
+                        <customerContacts></customerContacts>
                     </Tab-pane>
 
 
@@ -93,206 +93,19 @@
 
 
                     <Tab-pane label="缴费记录">
-                        <div class="ui-Contactslist-contrec">
-                            <ul>
-                                <li>
-                                    <p>会计人员:</p>
-                                    <Select style="width: 150px" small>
-                                        <Option small>213123</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>时间范围:</p>
-                                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
-                                    至
-                                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
-                                </li>
-                                <li>
-                                    <p>费用类别:</p>
-                                    <Select style="width:150px">
-                                        <Option>213123</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>审账人员:</p>
-                                    <Select style="width:130px">
-                                        <Option>213123</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>逾期缴费:</p>
-                                    <Checkbox v-model="single">&nbsp;</Checkbox>
-                                </li>
-                            </ul>
-                            <Button type="primary">查询</Button>
-                            <div class="ui-Contactslist-table">
-                                <div class="ui-Contactslist-table-title">
-                                    <p>剩余应收款:1234元</p>
-                                    <p>本月应收款:1234元</p>
-                                </div>
-                                <div>
-                                    <Table :columns="columns1" :data="data1"></Table>
-                                    <div class="ui-Contactslist-table-page">
-                                        <div class="ui-Contactslist-table-page-left">
-                                            <p>当前第 1 到 8 条  共  8 条</p>
-                                        </div>
-                                        <div class="ui-Contactslist-table-page-right">
-                                            <Page :total="100"></Page>
-                                        </div>
-                                    <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <customerPay></customerPay>
                     </Tab-pane>
 
 
                     <Tab-pane label="合同">
-                        <div class="ui-Contactslist-contract">
-                            <div class="ui-Contactslist-contract-bottom">
-                                <Button type="primary">添加合同</Button>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="ui-Contactslist-contract-table">
-                                <table>
-                                    <tr>
-                                        <th style="width:15%">合同编号</th> 
-                                        <th>合同类型</th>
-                                        <th>合同周期</th>
-                                        <th>合同状态</th>
-                                        <th>签约时间</th>
-                                        <th>实收费用</th>
-                                        <th>优惠金额</th>
-                                        <th>客户代表</th>
-                                        <th>公司代表</th>
-                                    </tr>
-                                    <tr @click="lookMore('contract')">
-                                        <td :class="[ showMore.contract ? 'ui-sele-bottom' : 'ui-sele-right']">HT20170514</td>
-                                        <td>代理记账</td>
-                                        <td>年</td>
-                                        <td>进行中</td>
-                                        <td>2017-05-14</td>
-                                        <td>5000元</td>
-                                        <td>500元</td>
-                                        <td>宋先生</td>
-                                        <td>刘先生</td>
-                                        <tr>
-                                            <template v-if="showMore.contract">
-                                                <td colspan='9' class="ui-Contactslist-contract-table-detail">
-                                                    <ul>
-                                                        <li>办理事项:小规模记账</li>
-                                                        <li style="width:15%">付款周期:月付</li>
-                                                        <li>账本费:200元</li>
-                                                        <li>纸质合同:签订</li>
-                                                        <li>开具发票:否</li>
-                                                        <div>
-                                                            <p>代收明细:</p>
-                                                            <table class="ui-Contactslist-contract-table-table">
-                                                                <tr>
-                                                                    <th>代收项</th>
-                                                                    <th>代收金额</th>
-                                                                    <th>有效期</th>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        地税CA
-                                                                    </td>
-                                                                    <td>
-                                                                        500
-                                                                    </td>
-                                                                    <td>
-                                                                        2017-05-14
-                                                                    </td>
-                                                                </tr>
-                                                            </Table>
-                                                        </div>
-                                                    </ul>
-                                                </td>
-                                            </template>
-                                        </tr>
-                                    </tr>
-                                   
-                                </table>
-                            </div>
-                        </div>
+                        <customerContract></customerContract>
                     </Tab-pane>
 
 
                     <Tab-pane label="任务协同">
-                        <div class="ui-Contactslist-contrec">
-                            <ul>
-                                <li>
-                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;发起人:</p>
-                                    <Select style="width: 110px" small>
-                                        <Option small>3333</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>发起时间:</p>
-                                    <Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
-                                </li>
-                                <li>
-                                    <p>&nbsp;&nbsp;&nbsp;紧急度:</p>
-                                    <Select style="width:110px">
-                                        <Option>3333</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>执行状态:</p>
-                                    <Select style="width:110px">
-                                        <Option>3333</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>是否延期:</p>
-                                    <Select style="width:110px">
-                                        <Option>3333</Option>
-                                    </Select>
-                                </li>
-                                <li>
-                                    <p>任务类型:</p>
-                                    <Select style="width:110px">
-                                        <Option>3333</Option>
-                                    </Select>
-                                </li>
-                            </ul>
-                            <Button type="primary">查询</Button>
-                            <div class="ui-Contactslist-task">
-                                <table>
-                                    <tr>
-                                        <th style="width:20%">任务类型</th> 
-                                        <th>发起人</th>
-                                        <th>发起时间</th>
-                                        <th>状态</th>
-                                        <th>紧急度</th>
-                                    </tr>
-                                    <tr @click="lookMore('task')">
-                                        <td :class="[ showMore.task ? 'ui-task-bottom' : 'ui-task-right']">开发票</td>
-                                        <td>客户</td>
-                                        <td>2018-04-02</td>
-                                        <td>未处理</td>
-                                        <td>高</td>
-                                        <tr>
-                                            <template v-if="showMore.task">
-                                                <td colspan='5' class="ui-Contactslist-contract-table-detail">
-                                                    <p style="margin-left: 40px;display:inline-block;font-weight: bold;">流程图:</p>
-                                                    <div class="ui-task-lct">
-                                                        <Steps :current="1" status="error">
-                                                            <Step title="已完成" content="完成"></Step>
-                                                            <Step title="进行中" content="项目经历审批"></Step>
-                                                            <Step title="待进行" content="部门经历审批"></Step>
-                                                            <Step title="待进行" content="完成"></Step>
-                                                        </Steps>
-                                                    </div>
-                                                    <p class="ui-task-lct-tip">* 距离约定到期时间还有1天</p>
-                                                </td>
-                                            </template>
-                                        </tr>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                        <customerMission></customerMission>
                     </Tab-pane>
+
                     <Tab-pane label="证件收取">证件收取</Tab-pane>
                     <Tab-pane label="沟通记录">沟通记录</Tab-pane>
                 </Tabs>
@@ -304,8 +117,11 @@
 <script>
 const log = console.log;
 import moreMixin from 'home-mixins/more';
-import customerAdd from './customerAdd';
-import customerContract from './customerContract';
+import customerAdd from './customerAdd';//基本信息
+import customerPay from './customerPay';//缴费记录
+import customerContacts from './customerContacts';//联系人
+import customerMission from './customerMission';//任务协同
+import customerContract from './customerContract';//合同
 import ajax from 'utils/ajax';
 import { mapState } from 'vuex'
 export default {
@@ -313,7 +129,7 @@ export default {
     data () {
         return {};
     },
-    components:{customerAdd,customerContract},
+    components:{customerAdd,customerContract,customerContacts,customerPay,customerMission},
     computed: mapState('homeStore', {
         list: state => state.listData.data,
     }),
@@ -384,186 +200,11 @@ export default {
     text-align: center;
     cursor: pointer;
 }
-
-.ui-menu-infor-Contactslist-p{
-    padding: 5px;
-    p{
-        font-weight: bold;
-        display: inline-block;
-    }
-    span{
-        display: inline-block;
-        text-indent: 2px;
-    }
-    li{
-        padding: 10px;
-    }
-}
-.ui-menu-infor-Contactslist-active{
-    border-left: 2px solid @blue;
-}
-.ui-menu-infor-app{
-    background: url("@{w-img}icon-app.png") 95% 5% no-repeat;
-}
-.ui-menu-infor-Contactslist-add{
-    margin-right: 35px;
-    float: right;
-}
-.ui-Contactslist-contrec{
-    padding: 20px;
-    font-size: 13px;
-    >ul{
-        width: 88%;
-        display: inline-block;
-        vertical-align: middle;
-        li{
-            display: inline-block;
-            vertical-align: middle;
-            padding-bottom: 10px;
-            padding-right: 10px;
-        }
-        p{
-            display: inline-block;
-        }
-    }
-    Button{
-        width: 10%;
-        margin-top: 30px;
-    }
-}
-.ivu-date-picker,
-.ivu-select{
-    display: inline-block;
-}
-.ui-Contactslist-table{
-    background: #FfF;
-    border: 1px solid #dcdcdc;
-    .ui-Contactslist-table-title{
-        padding: 10px 0;
-        text-align: center;
-        p{
-            display: inline-block;
-            margin-right: 50px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-    }
-}
-.ui-Contactslist-table-page{
-    padding: 10px;
-    .ui-Contactslist-table-page-left{
-        float: left;
-        margin-top: 10px;
-    }
-    .ui-Contactslist-table-page-right{
-        float: right;
-    }
-}
-.ui-Contactslist-contract{
-    padding: 15px;
-    font-size: 12px;
-    .ui-Contactslist-contract-bottom{
-        float: right;
-        margin-bottom: 10px;
-    }
-    .ui-Contactslist-contract-table{
-        border: 1px solid #dddddd; 
-        background: #ededed;
-        width: 100%;
-        table{
-            table-layout: fixed;
-            text-align: center;
-            width: 100%;
-            tr{
-                border: 1px solid #dddddd; 
-                th,td{
-                    padding: 10px 5px;
-                }
-                > td{
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-}
-.ui-Contactslist-contract-table-detail{
-    text-align: left;
-    background: #fff;
-    width: 100%;
-    li{
-        display: inline-block;
-        width: 20%;
-        padding: 10px 0; 
-    }
-    div{
-        padding: 10px 0;
-        p{
-            padding: 5px 0;
-        }
-        table{
-            background: #ededed;
-            border: 1px solid #dddddd; 
-            td{
-                background: #fff;
-            }
-        }
-    }
-}
-.ui-Contactslist-contract-table-table{
-    width: 80%!important;
-    margin: 0 auto;
-}
-.ui-sele-bottom{
-    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
-    background-size: 12%;
-}
-
-.ui-sele-right{
-    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
-    background-size: 9%;
-}
-.ui-task-bottom{
-    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
-    background-size: 11%;
-}
-.ui-task-right{
-    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
-    background-size: 8%;
-}
-.ui-Contactslist-task{
-    width: 100%;
-    border: 1px solid #dddddd; 
-    background: #ededed;
-    width: 100%;
-    table{
-        table-layout: fixed;
-        text-align: center;
-        width: 100%;
-        tr{
-            border: 1px solid #dddddd; 
-            th,td{
-                padding: 10px 5px;
-            }
-            > td{
-                cursor: pointer;
-            }
-        }
-    }
-}
-.ui-task-lct{
-    width: 80%;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 40px;
-}
-.ui-task-lct-tip{
-    text-align: center;
-    color: red;
-}
 .ui-Contactslist-tax{
     padding: 10px 20px;
     button{
         float: right;
     }
 }
+
 </style>

@@ -1,49 +1,72 @@
 <template>
     <div>
-        <div class="ui-menu-infor-Contactslist-add">
-            <Button type="primary">添加合同</Button>
+        <div class="ui-Contactslist-contract">
+            <div class="ui-Contactslist-contract-bottom">
+                <Button type="primary">添加合同</Button>
+            </div>
+            <div class="clear"></div>
+            <div class="ui-Contactslist-contract-table">
+                <table>
+                    <tr>
+                        <th style="width:15%">合同编号</th> 
+                        <th>合同类型</th>
+                        <th>合同周期</th>
+                        <th>合同状态</th>
+                        <th>签约时间</th>
+                        <th>实收费用</th>
+                        <th>优惠金额</th>
+                        <th>客户代表</th>
+                        <th>公司代表</th>
+                    </tr>
+                    <tr @click="lookMore('contract')">
+                        <td :class="[ showMore.contract ? 'ui-sele-bottom' : 'ui-sele-right']">HT20170514</td>
+                        <td>代理记账</td>
+                        <td>年</td>
+                        <td>进行中</td>
+                        <td>2017-05-14</td>
+                        <td>5000元</td>
+                        <td>500元</td>
+                        <td>宋先生</td>
+                        <td>刘先生</td>
+                        <tr>
+                            <template v-if="showMore.contract">
+                                <td colspan='9' class="ui-Contactslist-contract-table-detail">
+                                    <ul>
+                                        <li>办理事项:小规模记账</li>
+                                        <li style="width:15%">付款周期:月付</li>
+                                        <li>账本费:200元</li>
+                                        <li>纸质合同:签订</li>
+                                        <li>开具发票:否</li>
+                                        <div>
+                                            <p>代收明细:</p>
+                                            <table class="ui-Contactslist-contract-table-table">
+                                                <tr>
+                                                    <th>代收项</th>
+                                                    <th>代收金额</th>
+                                                    <th>有效期</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        地税CA
+                                                    </td>
+                                                    <td>
+                                                        500
+                                                    </td>
+                                                    <td>
+                                                        2017-05-14
+                                                    </td>
+                                                </tr>
+                                            </Table>
+                                        </div>
+                                    </ul>
+                                </td>
+                            </template>
+                        </tr>
+                    </tr>
+                    
+                </table>
+            </div>
         </div>
-        <div class="clear"></div>
-        <ul class="ui-menu-infor-Contactslist">
-            <li class="ui-menu-infor-Contactslist-active">
-                <ul class="ui-menu-infor-Contactslist-p ui-menu-infor-app">
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                </ul>
-            </li>
-            <li class="ui-menu-infor-Contactslist-active">
-                <ul class="ui-menu-infor-Contactslist-p ui-menu-infor-app">
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                    <li>
-                        <p>头衔：</p><span>xxxx</span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
     </div>
 </template>
 
@@ -68,44 +91,67 @@ export default {
 
 <style lang='less' scoped>
 @import '../../../styles/style.less';
-.ui-menu-infor-Contactslist-add{
-    margin-right: 35px;
-    float: right;
-}
-.ui-menu-infor-Contactslist{
-    &>li{
-        width: 43%;
-        margin: 20px;
-        display: inline-block;
-        background: #fff;
-        padding: .5px;
-        box-shadow: 2px 2px 5px #eee;
-        
+.ui-Contactslist-contract{
+    padding: 15px;
+    font-size: 12px;
+    .ui-Contactslist-contract-bottom{
+        float: right;
+        margin-bottom: 10px;
+    }
+    .ui-Contactslist-contract-table{
+        border: 1px solid #dddddd; 
+        background: #ededed;
+        width: 100%;
+        table{
+            table-layout: fixed;
+            text-align: center;
+            width: 100%;
+            tr{
+                border: 1px solid #dddddd; 
+                th,td{
+                    padding: 10px 5px;
+                }
+                > td{
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
-.ui-menu-infor-Contactslist-active{
-    border-left: 2px solid @blue;
+.ui-Contactslist-contract-table-detail{
+    text-align: left;
+    background: #fff;
+    width: 100%;
+    li{
+        display: inline-block;
+        width: 20%;
+        padding: 10px 0; 
+    }
+    div{
+        padding: 10px 0;
+        p{
+            padding: 5px 0;
+        }
+        table{
+            background: #ededed;
+            border: 1px solid #dddddd; 
+            td{
+                background: #fff;
+            }
+        }
+    }
 }
-.ui-menu-infor-app{
-    background: url("@{w-img}icon-app.png") 95% 5% no-repeat;
+.ui-Contactslist-contract-table-table{
+    width: 80%!important;
+    margin: 0 auto;
 }
-.ui-menu-infor-Contactslist-add{
-    margin-right: 35px;
-    float: right;
+.ui-sele-bottom{
+    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
+    background-size: 12%;
 }
 
-.ui-menu-infor-Contactslist-p{
-    padding: 5px;
-    p{
-        font-weight: bold;
-        display: inline-block;
-    }
-    span{
-        display: inline-block;
-        text-indent: 2px;
-    }
-    li{
-        padding: 10px;
-    }
+.ui-sele-right{
+    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
+    background-size: 9%;
 }
 </style>

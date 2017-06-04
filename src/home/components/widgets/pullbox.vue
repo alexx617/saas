@@ -29,9 +29,10 @@ export default {
         console.log(mapState);
     },
     methods: {
-        ...mapActions('homeStore', ['SET_MENU']),
+        ...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
         closeMenu() {
             this.SET_MENU(false);
+            this.SET_COMPONENT([null,null])
         }
     },
 }
