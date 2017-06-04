@@ -11,7 +11,6 @@
 import uiHead from 'home-widgets/header'
 import uiSidebar from 'home-widgets/sidebar'
 export default {
-	name: "home-main",
 	data() {
 		return {
 

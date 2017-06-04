@@ -247,31 +247,30 @@ export default {
 					}
 				]
 			},
-			icon: {},
-			shareIcon: '',
-			selectList:{},
-			selecttype:[{
+			icon: {},//清除input
+			shareIcon: '',//股东删除icon
+			selectList:{},//存所有返回的select
+			selecttype:[{//股东下拉框
 				"code": "1",
 				"name": "法人"
-			},
-			{
+			},{
 				"code": "2",
 				"name": "监视"
-			},
-			{
+			},{
 				"code": "3",
 				"name": "普通"
 			}],
-			linkageCity:{
+			linkageCity:{//省市联动
 				provinceList:null,
 				cityList:[]
 			}
 		};
 	},
 	created() {
-		this.linkageCity.provinceList = city.provinceList;
+		this.linkageCity.provinceList = city.provinceList;//省市区列表
 		let now = new Date();
-		this.formItem.createDate = dateFormat(now, "isoDate");
+		this.formItem.createDate = dateFormat(now, "isoDate");//创建时间
+		//init时获取所有select
 		ajax.customer_Add()
 			.then(rs => {
 				if (rs.success) {
@@ -286,9 +285,11 @@ export default {
 	},
 	components: {},
 	methods: {
+		//清除输入框
 		clearInput(me) {
 			this.formItem[me] == '' ? this.icon[me] = '' : this.icon[me] = 'close-circled'
 		},
+		//新增股东
 		addShare() {
 			let shareList = {
 				name: '',
@@ -300,6 +301,7 @@ export default {
 				this.shareIcon = 'minus-circled'
 			}
 		},
+		//删除股东
 		delShare(me) {
 			if (this.formItem.partners.length > 1) {
 				this.formItem.partners.splice(me, 1);
@@ -308,14 +310,17 @@ export default {
 				}
 			}
 		},
+		//省市区联动(市)
 		getCity(row){
 			this.linkageCity.cityList = [];
 			this.linkageCity.cityList = city.cityList[row];
 		},
+		//省市区联动(区)
 		getDistrict(row){
 			this.linkageCity.districtList = [];
 			this.linkageCity.districtList = city.districtList[row];
 		},
+		//输完所有信息后保存
 		save(){
 			ajax.customer_AddSave(this.formItem)
 			.then(rs=>{
