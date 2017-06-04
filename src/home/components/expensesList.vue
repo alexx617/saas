@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../styles/style.less';
+    @import '../../styles/style.less';
 .ui-menu-title{
     padding:20px 20px 0 20px;
     font-size: 18px;

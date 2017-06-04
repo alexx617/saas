@@ -345,7 +345,7 @@
 
 <script>
 const log = console.log;
-import moreMixin from 'mixins/more';
+import moreMixin from '../mixins/more';
 import ajax from 'utils/ajax';
 import { mapState } from 'vuex'
 export default {
@@ -354,8 +354,8 @@ export default {
         return {};
     },
     components:{},
-    computed: mapState({
-        list: state => state.doc.listData.data,
+    computed: mapState('homeStore', {
+        list: state => state.listData.data,
     }),
     created() {
         this.getAjax();
@@ -381,7 +381,7 @@ export default {
 
 <style lang='less' scoped>
 
-    @import '../../styles/style.less';
+    @import '../../../styles/style.less';
 .ui-menu-title{
     padding:20px 20px 0 20px;
     font-size: 18px;

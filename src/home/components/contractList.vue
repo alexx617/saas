@@ -129,8 +129,8 @@ export default {
         };
     },
     components:{},
-    computed: mapState({
-        list: state => state.doc.listData.data,
+    computed: mapState('homeStore', {
+        list: state => state.listData.data,
     }),
     methods : {
 		clearInput(me){
@@ -142,7 +142,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-    @import '../styles/style.less';
+    @import '../../styles/style.less';
 .ui-menu-title{
     padding:20px 10px;
 	border-bottom: 1px solid #dddddd;

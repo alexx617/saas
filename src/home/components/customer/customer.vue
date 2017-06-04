@@ -51,7 +51,7 @@
 
 <script>
 const log = console.log;
-import pullbox from 'widgets/pullbox'
+import pullbox from '../widgets/pullbox.vue'
 import ajax from 'utils/ajax';
 import { mapActions } from 'vuex'
 
@@ -141,7 +141,7 @@ export default {
 		});
 	},
 	methods : {
-		...mapActions(['SET_MENU','SET_COMPONENT']),
+		...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['customerList', row])
@@ -178,6 +178,6 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../styles/style.less';
+@import '../../../styles/style.less';
 
 </style>

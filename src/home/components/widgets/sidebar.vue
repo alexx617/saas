@@ -3,7 +3,7 @@
 		
 		<Menu @on-select="$go" width="84px" theme="dark" :active-name="$route.name">
 			<div class='ui-sidebar-logo'></div>
-			<Menu-item name="home">
+			<Menu-item name="main">
 				<Icon style="background-size: 80%;"  class="ui-sidebar-icon ui-sidebar-icon0"></Icon>
 			</Menu-item>
 			<Menu-item name="talk">
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import "../../styles/style.less";
+@import "../../../styles/style.less";
 .ui-sidebar-menu{
 	position:absolute;
 	height:100%;

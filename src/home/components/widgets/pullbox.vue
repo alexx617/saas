@@ -10,10 +10,10 @@
 
 <script>
 const log = console.log;
-import customerList from '../customer/customerList'
-import customerAdd from '../customer/customerAdd'
-import contractList from '../contractList'
-import expensesList from '../expensesList'
+import customerList from '../customer/customerList.vue'
+import customerAdd from '../customer/customerAdd.vue'
+import contractList from '../contractList.vue'
+import expensesList from '../expensesList.vue'
 import { mapState, mapActions } from 'vuex'
 export default {
     data() {
@@ -21,12 +21,12 @@ export default {
         };
     },
     components: { customerList,customerAdd,contractList,expensesList },
-    computed: mapState({
-        changeMenu: state => state.doc.changeMenu,
-        showList: state => state.doc.listData.showList,
+    computed: mapState('homeStore', {
+        changeMenu: state => state.changeMenu,
+        showList: state => state.listData.showList,
     }),
     methods: {
-        ...mapActions(['SET_MENU']),
+        ...mapActions('homeStore', ['SET_MENU']),
         closeMenu() {
             this.SET_MENU(false);
         }
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import "../../styles/style.less";
+@import "../../../styles/style.less";
 .ui-pullbox-box {
     position: fixed;
     top: 0;

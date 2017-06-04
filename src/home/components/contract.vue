@@ -1,53 +1,43 @@
 <template>
 	<div class="all">
-		<div class="ui-title">
-			<span class="ui-title-logo ui-title-logo-expenses"></span>
-			<p>费用总览</p>
+		<div class="ui-title" @click="closeMenu()">
+			<span class="ui-title-logo ui-title-logo-service"></span>
+			<p>合同</p>
 		</div>
 		<div class="ui-main">
 			<ul class="ui-home-input">
 				<li>
 					<p>会计人员:</p>
-					<Select style="width:120px">
+					<Select style="width:200px">
 						<Option>123123</Option>
 					</Select>
 				</li>
 				<li>
-					<p>审账人员:</p>
-					<Select style="width:120px">
-						<Option>123123</Option>
-					</Select>
-				</li>
-				<li>
-					<p>费用类别:</p>
-					<Select style="width:120px">
+					<p>经手人:</p>
+					<Select style="width:200px">
 						<Option>123123</Option>
 					</Select>
 				</li>
 				<li>
 					<p>公司名称:</p>
-					<Input placeholder="请输入" style="width: 150px"></Input>
+					<Input placeholder="请输入" style="width: 200px"></Input>
 				</li>
-				<li class="ui-exp-time">
-					<p>时间范围:</p>
-					<Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
-					至
-					<Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
+				<li>
+					<Button type="primary" size="large">统计</Button>
 				</li>
-				<Button type="primary" size="large">统计</Button>
 			</ul>
 
 			<div class="ui-home-table">
 				<div class="ui-home-table-right">
-					<Table highlight-row width='100px' height="450" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
+					<Table highlight-row width="10%" height="450" :columns="columns1" :data="data2" @on-row-click="changeMenu"></Table>
 				</div>
-				
+
 				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 8 条  共  8 条</p>
+						<p>当前第 1 到 {{form.size}} 条  共  {{form.numberOfElements}} 条</p>
 					</div>
 					<div class="ui-home-table-page-right">
-						<Page :total="100" show-elevator></Page>
+						<Page :total="form.numberOfElements" show-elevator></Page>
 					</div>
 				</div>
 			</div>
@@ -58,7 +48,8 @@
 
 <script>
 const log = console.log;
-import pullbox from 'widgets/pullbox'
+import pullbox from './widgets/pullbox.vue'
+import ajax from '../../utils/ajax'
 import { mapActions } from 'vuex'
 
 export default {
@@ -66,7 +57,7 @@ export default {
 		return {
 				columns1: [
                     {
-                        title: '客户名称',
+                        title: '合同编号',
                         key: 'name'
                     },
                     {
@@ -121,34 +112,33 @@ export default {
                         age: 18,
                         address: '北京市朝阳区芍药居'
                     },
-				]
-				
+				],
+				form:{
+					page:0,
+					paras:{},
+					size:0
+				}
 		};
 	},
 	components:{pullbox},
 	created() {
-		this.SET_MENU(false);
+		this.closeMenu();
 	},
 	methods : {
-		...mapActions(['SET_MENU','SET_COMPONENT']),
+		...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
 		changeMenu(row){
 			this.SET_MENU(true);
-			this.SET_COMPONENT(['expensesList',row])
-		}
+			this.SET_COMPONENT(['contractList',row])
+		},
+        closeMenu(){
+			this.SET_MENU(false);
+		},
 	},
 }
 
 </script>
 
 <style lang='less' scoped>
-    @import '../styles/style.less';
-.ui-exp-time{
-	margin-right: 30px;
-	p{
-		display: inline-block;
-	}
-}
-.ivu-date-picker{
-	display: inline-block;
-}
+    @import '../../styles/style.less';
+
 </style>

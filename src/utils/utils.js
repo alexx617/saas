@@ -5,6 +5,8 @@ import router from '../router';
 export default {
     // 页面跳转
     $go: function(page, query) {
+        let parentPath = /\/(.+)\//g.exec(router.currentRoute.path);
+        page = parentPath?parentPath[0]+page:""
         let route = { path: page };
         if (query) {
             route.query = query;

@@ -193,7 +193,7 @@
 
 <script>
 const log = console.log;
-import dateFormat from 'dateFormat'
+// import dateFormat from 'dateFormat'
 import ajax from 'utils/ajax'
 import city from 'utils/city'
 export default {
@@ -202,50 +202,50 @@ export default {
 			formItem: {
 				//基本信息
 				name: '',
-				// no: '',
-				// level: '',
-				// zclx: '',
-				// createDate: '',
-				// source: '',
-				// industry: '',
-				// feature: '',
-				// status: '1',
-				// //取票方式
-				// fetchPerson: '',
-				// fetchType: '',
-				// fetchTel: '',
-				// fetchProvince: '',
-				// fetchCity: '',
-				// fetchArea: '',
-				// fetchAddress: '',
-				// //工商信息
-				// gsbh: '',
-				// zczb: '',
-				// rjqx: '',
-				// clsj: '',
-				// djjg: '',
-				// zzjg: '',
-				// jyfw: '',
-				// zcdz: '',
-				// //银行信息
-				// bankProve: '',
-				// bankOpen: '',
-				// bankNo: '',
-				// //税务信息
-				// taxNo: '',
-				// stateTax: '',
-				// localTax: '',
-				// personTaxPassword: '',
-				// stateTaxPassword: '',
-				// declarePassword: '',
-				//股东信息
-				// partners: [
-				// 	{
-				// 		name: '',
-				// 		ratio: '',
-				// 		type: ''
-				// 	}
-				// ]
+				no: '',
+				level: '',
+				zclx: '',
+				createDate: '',
+				source: '',
+				industry: '',
+				feature: '',
+				status: '1',
+				//取票方式
+				fetchPerson: '',
+				fetchType: '',
+				fetchTel: '',
+				fetchProvince: '',
+				fetchCity: '',
+				fetchArea: '',
+				fetchAddress: '',
+				//工商信息
+				gsbh: '',
+				zczb: '',
+				rjqx: '',
+				clsj: '',
+				djjg: '',
+				zzjg: '',
+				jyfw: '',
+				zcdz: '',
+				//银行信息
+				bankProve: '',
+				bankOpen: '',
+				bankNo: '',
+				//税务信息
+				taxNo: '',
+				stateTax: '',
+				localTax: '',
+				personTaxPassword: '',
+				stateTaxPassword: '',
+				declarePassword: '',
+				// 股东信息
+				partners: [
+					{
+						name: '',
+						ratio: '',
+						type: ''
+					}
+				]
 			},
 			icon: {},
 			shareIcon: '',
@@ -271,7 +271,7 @@ export default {
 	created() {
 		this.linkageCity.provinceList = city.provinceList;
 		let now = new Date();
-		// this.formItem.createDate = dateFormat(now, "isoDate");
+		this.formItem.createDate = dateFormat(now, "isoDate");
 		ajax.customer_Add()
 			.then(rs => {
 				if (rs.success) {
@@ -336,7 +336,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../styles/style.less';
+@import '../../../styles/style.less';
 .ui-menu-title {
 	padding: 20px 10px;
 	border-bottom: 1px solid #dddddd;

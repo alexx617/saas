@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import "../../styles/style.less";
+@import "../../../styles/style.less";
 .ui-header-box{
     width: 100%;
     height: 50px;

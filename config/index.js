@@ -24,13 +24,14 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 8080,
+        port: 8282,
         autoOpenBrowser: false,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: 'http://dengxiaoying.vicp.io:35200/',
+                //target: 'http://dengxiaoying.vicp.io:35200/',
+				target: 'http://localhost:8080/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''
