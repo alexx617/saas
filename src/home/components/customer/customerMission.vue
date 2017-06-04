@@ -163,10 +163,5 @@ export default {
     text-align: center;
     color: red;
 }
-.ui-Contactslist-tax{
-    padding: 10px 20px;
-    button{
-        float: right;
-    }
-}
+
 </style>

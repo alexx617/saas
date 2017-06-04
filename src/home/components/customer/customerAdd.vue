@@ -1,9 +1,14 @@
 <template>
 	<div>
 		<div class="ui-menu-select">
+				
 			<div class="ui-customerAdd-msg">
 				<Form ref="formItem" :model="formItem" :rules="ruleValidate" :label-width="80">
+					
 					<p class="ui-customerAdd-icon0">基本信息:</p>
+					<div class="ui-customerAdd-save" @click="save('formItem')">
+						<Button type="primary">保存</Button>
+					</div>
 					<div class="ui-customerAdd-msgBox">
 						<Form-item label="客户名称:" prop="name">
 							<Input style="width: 200px" :icon="icon.name" @on-change="clearInput('name')" @on-click="formItem.name='',icon.name=''" v-model="formItem.name" placeholder="请输入"></Input>
@@ -179,10 +184,7 @@
 					</div>
 	
 				</Form>
-	
-				<div class="ui-customerAdd-save" @click="save('formItem')">
-					<Button type="primary">保存</Button>
-				</div>
+
 	
 			</div>
 	
@@ -469,12 +471,15 @@ export default {
 	background: url("@{w-img}icon-infor.png") 2% no-repeat;
 	text-indent: 40px;
 	padding: 10px;
-	margin-top: 20px;
+	width: 80%;
+	display: inline-block;
 }
 
 .ui-customerAdd-save {
-	float: right;
-	margin-bottom: 30px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	text-align: right;
+	display: inline-block;
 }
 
 .ui-customerAdd-del {
