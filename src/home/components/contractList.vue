@@ -245,7 +245,5 @@ export default {
 	min-height: 200px;
 	background: url("@{img}icon-tree.png") center no-repeat;
 }
-.ivu-form-item{
-	margin-bottom: 12px;
-}
+
 </style>
