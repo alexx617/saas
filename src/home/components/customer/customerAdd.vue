@@ -6,9 +6,17 @@
 				<Form ref="formItem" :model="formItem" :rules="ruleValidate" :label-width="80">
 					
 					<p class="ui-customerAdd-icon0">基本信息:</p>
-					<div class="ui-customerAdd-save" @click="save('formItem')">
-						<Button type="primary">保存</Button>
+					<div class="ui-customerAdd-btn-right">
+						<template v-if="list==='add'">
+							<div class="ui-customerAdd-save" @click="reset('formItem')">
+								<Button type="primary">重置</Button>
+							</div>
+						</template>
+						<div class="ui-customerAdd-save" @click="save('formItem')">
+							<Button :loading="loadingSave" type="primary">保存</Button>
+						</div>
 					</div>
+					<div class="clear"></div>
 					<div class="ui-customerAdd-msgBox">
 						<Form-item label="客户名称:" prop="name">
 							<Input style="width: 200px" :icon="icon.name" @on-change="clearInput('name')" @on-click="formItem.name='',icon.name=''" v-model="formItem.name" placeholder="请输入"></Input>
@@ -199,6 +207,7 @@ import ajax from 'utils/ajax'
 import city from 'utils/city'
 import rule from 'utils/rule'
 import homeRule from 'home-utils/homeRule'
+import { mapState } from 'vuex'
 
 export default {
 	data() {
@@ -268,9 +277,13 @@ export default {
 				provinceList:null,
 				cityList:[]
 			},
-			ruleValidate :{}//验证规则
+			ruleValidate :{},//验证规则
+			loadingSave:false//保存按钮置灰
 		};
 	},
+	computed: mapState('homeStore', {
+        list: state => state.listData.data, //判断从哪个位置进入基本信息页
+    }),
 	created() {
 		this.linkageCity.provinceList = city.provinceList;//省市区列表
 		let now = new Date();
@@ -328,8 +341,10 @@ export default {
 		},
 		//输完所有信息后保存
 		save(name){
+			if(this.loadingSave == true) return;
             this.$refs[name].validate(valid=>{
-				if (valid==false) return
+				// if (valid==false) return
+				this.loadingSave = true;//验证完成后保存按钮置灰
 				ajax.customer_AddSave(this.formItem)
 				.then(rs=>{
 					if (rs.success) {
@@ -344,6 +359,10 @@ export default {
 				});
             })
 		},
+		reset(name){
+			if(this.loadingSave == true) return;
+			this.$refs[name].resetFields();
+		}
 	}
 }
 
@@ -471,7 +490,7 @@ export default {
 	background: url("@{w-img}icon-infor.png") 2% no-repeat;
 	text-indent: 40px;
 	padding: 10px;
-	width: 80%;
+	width: 60%;
 	display: inline-block;
 }
 
@@ -491,5 +510,8 @@ export default {
 	i {
 		font-size: 20px;
 	}
+}
+.ui-customerAdd-btn-right{
+	float: right;
 }
 </style>

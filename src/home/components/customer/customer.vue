@@ -26,7 +26,7 @@
 					<Button type="primary" size="large" @click="getAjax">统计</Button>
 				</li>
 				<li style="float: right;">
-					<Button type="primary" size="large" @click="addCustomer">新增客户</Button>
+					<Button type="primary" size="large" @click="addCustomer('add')">新增客户</Button>
 				</li>
 			</ul>
 
@@ -53,7 +53,7 @@
 const log = console.log;
 import pullbox from '../widgets/pullbox.vue'
 import ajax from 'utils/ajax';
-import { mapActions } from 'vuex'
+import { mapActions,mapState } from 'vuex'
 
 export default {
 	data () {
@@ -146,9 +146,9 @@ export default {
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['customerList', row])
 		},
-		addCustomer(){
+		addCustomer(me){
 			this.SET_MENU(true);
-			this.SET_COMPONENT(['customerAdd', null])
+			this.SET_COMPONENT(['customerAdd', me])
 		},
 		getAjax(){
 			ajax.customer_List(this.form)
