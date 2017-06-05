@@ -1,5 +1,5 @@
 <template>
-    <div class="ui-header-box" @click.stop.prevent="$closePullBox()">
+    <div class="ui-header-box" @click.stop="$closePullBox()">
         <!--<div class="ui-header-left"></div>-->
         <div class="ui-header-right">
             <ul>

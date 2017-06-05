@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../../styles/style.less';
+	@import '../../../../styles/style';
 .ui-menu-infor-Contactslist-add{
     margin-right: 35px;
     float: right;
@@ -87,7 +87,7 @@ export default {
     border-left: 2px solid @blue;
 }
 .ui-menu-infor-app{
-    background: url("@{w-img}icon-app.png") 95% 5% no-repeat;
+    background: url("@{c-img}icon-app.png") 95% 5% no-repeat;
 }
 .ui-menu-infor-Contactslist-add{
     margin-right: 35px;

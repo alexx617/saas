@@ -10,8 +10,8 @@
 
 <script>
 const log = console.log;
-import customerList from '../customer/customerList'
-import customerAdd from '../customer/customerAdd'
+import customerList from '../customer/children/customerList'
+import customerAdd from '../customer/children/customerAdd'
 import contractList from '../contractList'
 import expensesList from '../expensesList'
 import { mapState, mapActions } from 'vuex'
@@ -26,7 +26,7 @@ export default {
         showList: state => state.listData.showList,
     }),
     created () {
-        console.log(mapState);
+
     },
     methods: {
         ...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),

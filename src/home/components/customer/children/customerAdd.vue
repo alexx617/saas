@@ -207,7 +207,7 @@ import ajax from 'utils/ajax'
 import city from 'utils/city'
 import rule from 'utils/rule'
 import homeRule from 'home-utils/homeRule'
-import { mapState } from 'vuex'
+import { mapState,mapActions } from 'vuex'
 
 export default {
 	data() {
@@ -304,6 +304,7 @@ export default {
 	},
 	components: {},
 	methods: {
+        ...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
 		//清除输入框
 		clearInput(me) {
 			this.formItem[me] == '' ? this.icon[me] = '' : this.icon[me] = 'close-circled'
@@ -343,13 +344,14 @@ export default {
 		save(name){
 			if(this.loadingSave == true) return;
             this.$refs[name].validate(valid=>{
-				// if (valid==false) return
+				if (valid==false) return
 				this.loadingSave = true;//验证完成后保存按钮置灰
 				ajax.customer_AddSave(this.formItem)
 				.then(rs=>{
 					if (rs.success) {
-						// this.selectList = rs.data;
-						// log(this.selectList)
+						this.$true('保存成功!');
+						this.SET_MENU(false);
+            			this.SET_COMPONENT([null,null]);
 					} else {
 						this.$tip(rs.message);
 					};
@@ -360,7 +362,7 @@ export default {
             })
 		},
 		reset(name){
-			if(this.loadingSave == true) return;
+			if(this.loadingSave == true) return;//保存时重置不可点击
 			this.$refs[name].resetFields();
 		}
 	}
@@ -369,7 +371,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../../styles/style.less';
+	@import '../../../../styles/style';
 .ui-menu-title {
 	padding: 20px 10px;
 	border-bottom: 1px solid #dddddd;
@@ -395,13 +397,13 @@ export default {
 		margin: 0 10px;
 	}
 	.ui-menu-title-icon-preview {
-		background: url("@{w-img}icon-preview.png") left no-repeat;
+		background: url("@{c-img}icon-preview.png") left no-repeat;
 	}
 	.ui-menu-title-icon-print {
-		background: url("@{w-img}icon-print.png") left no-repeat;
+		background: url("@{c-img}icon-print.png") left no-repeat;
 	}
 	.ui-menu-title-icon-output {
-		background: url("@{w-img}icon-output.png") left no-repeat;
+		background: url("@{c-img}icon-output.png") left no-repeat;
 	}
 }
 
@@ -483,11 +485,11 @@ export default {
 	width: 10%;
 	display: inline-block;
 	min-height: 200px;
-	background: url("@{w-img}icon-tree.png") center no-repeat;
+	background: url("@{c-img}icon-tree.png") center no-repeat;
 }
 
 .ui-customerAdd-icon0 {
-	background: url("@{w-img}icon-infor.png") 2% no-repeat;
+	background: url("@{c-img}icon-infor.png") 2% no-repeat;
 	text-indent: 40px;
 	padding: 10px;
 	width: 60%;

@@ -33,11 +33,8 @@
 				</div>
 
 				<div class="ui-home-table-page">
-					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 {{form.size}} 条  共  {{form.numberOfElements}} 条</p>
-					</div>
 					<div class="ui-home-table-page-right">
-						<Page :total="form.numberOfElements" show-elevator></Page>
+						<Page :total="page.totalElements" :current="page.number" show-elevator show-total @on-change="gopage"></Page>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 <template>
 	<div class="all">
-		<div class="ui-title">
+		<div class="ui-title" @click.stop="$closePullBox()">
 			<span class="ui-title-logo ui-title-logo-service"></span>
 			<p>服务</p>
 		</div>
@@ -35,12 +35,9 @@
 					<Table highlight-row width="10%" height="450" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
-				<div class="ui-home-table-page">
-					<div class="ui-home-table-page-left">
-						<p>当前第 1 到 {{page.size}} 条  共  {{page.totalElements}} 条</p>
-					</div>
+				<div class="ui-home-table-page" @click.stop="$closePullBox()">
 					<div class="ui-home-table-page-right">
-						<Page :total="page.totalElements" :current="page.number" show-elevator @on-change="gopage"></Page>
+						<Page :total="page.totalElements" :current="page.number" show-elevator show-total @on-change="gopage"></Page>
 					</div>
 				</div>
 			</div>
@@ -53,7 +50,7 @@
 const log = console.log;
 import pullbox from '../widgets/pullbox.vue'
 import ajax from 'utils/ajax';
-import { mapActions,mapState } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
 	data () {

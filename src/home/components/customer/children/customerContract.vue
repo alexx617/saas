@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../../styles/style.less';
+	@import '../../../../styles/style';
 .ui-Contactslist-contract{
     padding: 15px;
     font-size: 12px;
@@ -146,12 +146,12 @@ export default {
     margin: 0 auto;
 }
 .ui-sele-bottom{
-    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
+    background: url("@{c-img}icon-sele-bottom.png") 2% no-repeat;
     background-size: 12%;
 }
 
 .ui-sele-right{
-    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
+    background: url("@{c-img}icon-sele-right.png") 2% no-repeat;
     background-size: 9%;
 }
 </style>

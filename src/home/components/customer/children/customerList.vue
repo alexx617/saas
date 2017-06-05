@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../../styles/style.less';
+@import '../../../../styles/style';
 .ui-menu-title{
     padding:20px 20px 0 20px;
     font-size: 18px;
@@ -194,7 +194,7 @@ export default {
     }
 }
 .ui-menu-infor-icon0{
-    background: url("@{w-img}icon-infor.png") left no-repeat;
+    background: url("@{c-img}icon-infor.png") left no-repeat;
 }
 .ui-menu-more{
     text-align: center;

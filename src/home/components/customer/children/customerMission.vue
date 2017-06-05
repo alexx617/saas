@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../../styles/style.less';
+	@import '../../../../styles/style';
 .ui-Contactslist-contrec{
     padding: 20px;
     font-size: 13px;
@@ -126,11 +126,11 @@ export default {
 }
 
 .ui-task-bottom{
-    background: url("@{w-img}icon-sele-bottom.png") 2% no-repeat;
+    background: url("@{c-img}icon-sele-bottom.png") 2% no-repeat;
     background-size: 11%;
 }
 .ui-task-right{
-    background: url("@{w-img}icon-sele-right.png") 2% no-repeat;
+    background: url("@{c-img}icon-sele-right.png") 2% no-repeat;
     background-size: 8%;
 }
 .ui-Contactslist-task{
