@@ -365,7 +365,8 @@ export default {
 		reset(name){
 			// if(this.loadingSave == true) return;//保存时重置不可点击
 			// this.$refs[name].resetFields();
-			this.GET_CUSTOMER();
+			// this.GET_CUSTOMER();
+			log(this.$root);
 		}
 	}
 }

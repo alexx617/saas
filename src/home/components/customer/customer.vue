@@ -170,6 +170,9 @@ export default {
 		},
         closeMenu(){//关闭pullbox
 			this.SET_MENU(false);
+		},
+		test(){
+			log('123123')
 		}
 	},
 }
