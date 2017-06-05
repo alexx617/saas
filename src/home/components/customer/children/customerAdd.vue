@@ -304,7 +304,7 @@ export default {
 	},
 	components: {},
 	methods: {
-        ...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
+        ...mapActions('homeStore', ['SET_MENU','SET_COMPONENT','GET_CUSTOMER']),
 		//清除输入框
 		clearInput(me) {
 			this.formItem[me] == '' ? this.icon[me] = '' : this.icon[me] = 'close-circled'
@@ -349,6 +349,7 @@ export default {
 				ajax.customer_AddSave(this.formItem)
 				.then(rs=>{
 					if (rs.success) {
+						this.loadingSave = false;
 						this.$true('保存成功!');
 						this.SET_MENU(false);
             			this.SET_COMPONENT([null,null]);
@@ -362,8 +363,9 @@ export default {
             })
 		},
 		reset(name){
-			if(this.loadingSave == true) return;//保存时重置不可点击
-			this.$refs[name].resetFields();
+			// if(this.loadingSave == true) return;//保存时重置不可点击
+			// this.$refs[name].resetFields();
+			this.GET_CUSTOMER();
 		}
 	}
 }

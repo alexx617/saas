@@ -50,85 +50,87 @@
 const log = console.log;
 import pullbox from '../widgets/pullbox.vue'
 import ajax from 'utils/ajax';
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 	data () {
 		return {
-				columns1: [
-                    {
-                        title: '客户名称',
-                        key: 'name'
-                    },
-                    {
-                        title: '客户简称',
-                        key: 'name'
-                    },
-                    {
-                        title: '客户级别',
-                        key: 'level',
-						render: (h, params) => {
-							var level = this.selectList.level.map(item=>{
-								if(params.row.level === item.code){
-									return item.name;
-								}
-							})
-							return h(params.row.level,level)
-                        }
-                    },
-                    {
-                        title: '登记时间',
-                        key: 'createDate'
-                    },
-                    {
-                        title: '企业类型',
-                        key: 'address'
-                    },
-                    {
-                        title: '行业类型',
-                        key: 'address'
-                    },
-                    {
-                        title: '所属会计',
-                        key: 'address'
-                    },
-                    {
-                        title: '审账会计',
-                        key: 'address'
-                    },
-                    {
-                        title: '客户特点',
-                        key: 'address'
-                    },
-                    {
-                        title: '联系人',
-                        key: 'address'
-                    },
-                    {
-                        title: '联系人电话',
-                        key: 'address'
-                    }
-                ],
-				form:{//客户列表分页
-					page:0,
-					size:10,
-					name:'',//公司名称
-					kuaiji:'',
+			columns1: [
+				{
+					title: '客户名称',
+					key: 'name'
 				},
-				page:{},
-				content:[],//客户列表
-				selectList:{}
+				{
+					title: '客户简称',
+					key: 'name'
+				},
+				{
+					title: '客户级别',
+					key: 'level',
+					render: (h, params) => {
+						var level = this.selectList.level.map(item=>{
+							if(params.row.level === item.code){
+								return item.name;
+							}
+						})
+						return h(params.row.level,level)
+					}
+				},
+				{
+					title: '登记时间',
+					key: 'createDate'
+				},
+				{
+					title: '企业类型',
+					key: 'address'
+				},
+				{
+					title: '行业类型',
+					key: 'address'
+				},
+				{
+					title: '所属会计',
+					key: 'address'
+				},
+				{
+					title: '审账会计',
+					key: 'address'
+				},
+				{
+					title: '客户特点',
+					key: 'address'
+				},
+				{
+					title: '联系人',
+					key: 'address'
+				},
+				{
+					title: '联系人电话',
+					key: 'address'
+				}
+			],
+			form:{//客户列表分页
+				page:0,
+				size:10,
+				name:'',//公司名称
+				kuaiji:'',
+			},
+			page:{},
+			content:[],//客户列表
+			selectList:{}
 		};
 	},
 	components:{pullbox},
+	computed: mapState('homeStore', {
+        content: state => state.customerList
+    }),
 	created() {
 		this.closeMenu();
-		this.getAjax();
-		ajax.customer_Select()
+		this.getAjax();//获取列表
+		ajax.customer_Select()//获取下拉框数据
 		.then(rs=>{
 			if (rs.success) {
 				this.selectList = rs.data;
-				log(this.selectList)
 			} else {
 				this.$tip(rs.message);
 			};
@@ -139,15 +141,15 @@ export default {
 	},
 	methods : {
 		...mapActions('homeStore', ['SET_MENU','SET_COMPONENT']),
-		changeMenu(row){
+		changeMenu(row){ //点击每条数据显示pullbox
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['customerList', row])
 		},
-		addCustomer(me){
+		addCustomer(me){ //点击新增客户显示pullbox
 			this.SET_MENU(true);
 			this.SET_COMPONENT(['customerAdd', me])
 		},
-		getAjax(){
+		getAjax(){//获取客户列表
 			ajax.customer_List(this.form)
 			.then(rs => {
 				if (rs.success) {
@@ -162,13 +164,13 @@ export default {
 				this.$tip('请稍候重试');
 			});
 		},
-		gopage(page){
+		gopage(page){//分页跳页
 			this.form.page = page-1;
 			this.getAjax();
 		},
-        closeMenu(){
+        closeMenu(){//关闭pullbox
 			this.SET_MENU(false);
-		},
+		}
 	},
 }
 
