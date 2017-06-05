@@ -285,7 +285,6 @@ export default {
         list: state => state.listData.data, //判断从哪个位置进入基本信息页
     }),
 	created() {
-		this.linkageCity.provinceList = city.provinceList;//省市区列表
 		let now = new Date();
 		this.formItem.createDate = dateFormat(now, "isoDate");//创建时间
 		this.ruleValidate = rule.chk(homeRule.customerAdd_list);//验证规则
@@ -301,6 +300,11 @@ export default {
 			.catch(error => {
 				this.$tip('请稍候重试');
 			});
+	},
+	mounted(){
+		setTimeout(()=>{
+			this.linkageCity.provinceList = city.provinceList;//省市区列表
+		},0)
 	},
 	components: {},
 	methods: {
@@ -365,8 +369,7 @@ export default {
 		reset(name){
 			// if(this.loadingSave == true) return;//保存时重置不可点击
 			// this.$refs[name].resetFields();
-			// this.GET_CUSTOMER();
-			log(this.$root);
+			this.GET_CUSTOMER();
 		}
 	}
 }
