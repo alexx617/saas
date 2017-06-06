@@ -363,6 +363,7 @@ export default {
 					};
 				})
 				.catch(error => {
+					this.loadingSave = false;
 					this.$tip('请稍候重试');
 				});
             })
