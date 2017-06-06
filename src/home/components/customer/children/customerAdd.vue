@@ -22,7 +22,7 @@
 							<Input style="width: 200px" :icon="icon.name" @on-change="clearInput('name')" @on-click="formItem.name='',icon.name=''" v-model="formItem.name" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="客户编号:" prop="no">
-							<Input style="width: 200px" :icon="icon.no" @on-change="clearInput('no')" @on-click="formItem.no='',icon.no=''" v-model="formItem.no" placeholder="请输入"></Input>
+							<Input maxlength="8" style="width: 200px" :icon="icon.no" @on-change="clearInput('no')" @on-click="formItem.no='',icon.no=''" v-model="formItem.no" placeholder="请输入"></Input>
 						</Form-item>
 						<Form-item label="客户等级:" prop="level">
 							<Select v-model="formItem.level" clearable style="width:200px">
@@ -288,6 +288,7 @@ export default {
 		let now = new Date();
 		this.formItem.createDate = dateFormat(now, "isoDate");//创建时间
 		this.ruleValidate = rule.chk(homeRule.customerAdd_list);//验证规则
+		this.loadingSave = false;
 		//init时获取所有select
 		ajax.customer_Add()
 			.then(rs => {
@@ -300,6 +301,21 @@ export default {
 			.catch(error => {
 				this.$tip('请稍候重试');
 			});
+
+		if(this.list!=='add'){
+			//init时获取所有基本信息回显
+			ajax.customer_Basic(this.list)
+			.then(rs => {
+				if (rs.success) {
+					this.formItem = rs.data;
+				} else {
+					this.$tip(rs.message);
+				};
+			})
+			.catch(error => {
+				this.$tip('请稍候重试');
+			});
+		}
 	},
 	mounted(){
 		setTimeout(()=>{

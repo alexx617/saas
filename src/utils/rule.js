@@ -1,7 +1,7 @@
 const log = console.log;
 export default {
     chk(data) {
-        var ruleValidate = {};
+        var ruleValidate = [];
         for (let i in data) {
             let required = data[i].required || true;
             let title = data[i].title || '';
@@ -11,8 +11,9 @@ export default {
             let min = data[i].min || '';
             let max = data[i].max || '';
 
-            ruleValidate[i] = { required: required, message: `${title}不能为空`, trigger: trigger }, { type: type, message: `${message}格式不正确`, trigger: trigger };
+            ruleValidate[i] = [{ required: `${required}`, message: `${title}不能为空`, trigger: `${trigger}` }, { type: `${type}`, message: message, min: `${min}`, max: `${max}` }]
         }
+        log(ruleValidate)
         return ruleValidate;
     }
 }

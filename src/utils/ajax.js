@@ -63,8 +63,8 @@ export default {
             data
         })
     },
-    //客户 拉出框 init
-    customer_PullInit(data) {
+    //客户 拉出框 基本信息
+    customer_Basic(data) {
         return fetch({
             method: 'get',
             url: `/api/customer/${data.id}`,

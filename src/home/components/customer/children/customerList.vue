@@ -135,19 +135,7 @@ export default {
         this.getAjax();
 	},
     methods : {
-        getAjax(){
-            ajax.customer_PullInit(this.list)
-			.then(rs => {
-				if (rs.success) {
-                    
-				} else {
-					this.$tip(rs.message);
-				};
-			})
-			.catch(error => {
-				this.$tip(error);
-			});
-        }
+        
     }
 }
 

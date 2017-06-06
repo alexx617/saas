@@ -32,7 +32,7 @@
 
 			<div class="ui-home-table">
 				<div class="ui-home-table-right">
-					<Table highlight-row width="10%" height="450" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
+					<Table highlight-row width="10%" height="530" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
 				<div class="ui-home-table-page" @click.stop="$closePullBox()">
@@ -170,9 +170,6 @@ export default {
 		},
         closeMenu(){//关闭pullbox
 			this.SET_MENU(false);
-		},
-		test(){
-			log('123123')
 		}
 	},
 }
