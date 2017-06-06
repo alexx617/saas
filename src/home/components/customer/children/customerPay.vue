@@ -4,25 +4,25 @@
             <ul>
                 <li>
                     <p>会计人员:</p>
-                    <Select style="width: 150px" small>
+                    <Select style="width: 100px" small>
                         <Option small>213123</Option>
                     </Select>
                 </li>
                 <li>
                     <p>时间范围:</p>
-                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+                    <Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
                     至
-                    <Date-picker type="date" placeholder="选择日期" style="width: 130px"></Date-picker>
+                    <Date-picker type="date" placeholder="选择日期" style="width: 110px"></Date-picker>
                 </li>
                 <li>
                     <p>费用类别:</p>
-                    <Select style="width:150px">
+                    <Select style="width:100px">
                         <Option>213123</Option>
                     </Select>
                 </li>
                 <li>
                     <p>审账人员:</p>
-                    <Select style="width:130px">
+                    <Select style="width:110px">
                         <Option>213123</Option>
                     </Select>
                 </li>
@@ -44,7 +44,7 @@
                             <p>当前第 1 到 8 条  共  8 条</p>
                         </div>
                         <div class="ui-Contactslist-table-page-right">
-                            <Page :total="100"></Page>
+                            <!--<Page :total="100"></Page>-->
                         </div>
                     <div class="clear"></div>
                     </div>

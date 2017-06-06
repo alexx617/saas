@@ -116,7 +116,6 @@
 
 <script>
 const log = console.log;
-import moreMixin from 'home-mixins/more';
 import customerAdd from './customerAdd';//基本信息
 import customerPay from './customerPay';//缴费记录
 import customerContacts from './customerContacts';//联系人
@@ -125,7 +124,6 @@ import customerContract from './customerContract';//合同
 import ajax from 'utils/ajax';
 import { mapState } from 'vuex'
 export default {
-    mixins: [moreMixin],
     data () {
         return {};
     },

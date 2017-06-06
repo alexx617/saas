@@ -4,6 +4,8 @@ const talk = r => require.ensure([], () => r(require('home-components/talk')), '
 const contract = r => require.ensure([], () => r(require('home-components/contract')), 'contract')
 const expenses = r => require.ensure([], () => r(require('home-components/expenses')), 'expenses')
 
+// import contract from 'home-components/contract'
+
 export default {
     router: [
         { path: 'main', name: 'main', component: home }, //首页

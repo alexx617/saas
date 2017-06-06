@@ -78,7 +78,9 @@
 
 <script>
 const log = console.log;
+import moreMixin from 'home-mixins/more';
 export default {
+    mixins: [moreMixin],
     data () {
         return {
             

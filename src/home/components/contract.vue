@@ -34,7 +34,7 @@
 
 				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-right">
-						<Page :total="page.totalElements" :current="page.number" show-elevator show-total @on-change="gopage"></Page>
+						<!--<Page :total="page.totalElements" :current="page.number" show-elevator show-total @on-change="gopage"></Page>-->
 					</div>
 				</div>
 			</div>
