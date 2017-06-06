@@ -1,8 +1,8 @@
-import customer from 'home-components/customer/customer'
-import home from 'home-components/home'
-import talk from 'home-components/talk'
-import contract from 'home-components/contract'
-import expenses from 'home-components/expenses'
+const home = r => require.ensure([], () => r(require('home-components/home')), 'home')
+const customer = r => require.ensure([], () => r(require('home-components/customer/customer')), 'customer')
+const talk = r => require.ensure([], () => r(require('home-components/talk')), 'talk')
+const contract = r => require.ensure([], () => r(require('home-components/contract')), 'contract')
+const expenses = r => require.ensure([], () => r(require('home-components/expenses')), 'expenses')
 
 export default {
     router: [

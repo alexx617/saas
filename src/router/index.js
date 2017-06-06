@@ -5,7 +5,8 @@ import homeRouter from '@/home/router'
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+    {
         path: '/home',
         name: "home-main",
         component: homeView,
