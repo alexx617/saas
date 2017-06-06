@@ -357,6 +357,7 @@ export default {
 						this.$true('保存成功!');
 						this.SET_MENU(false);
             			this.SET_COMPONENT([null,null]);
+						this.GET_CUSTOMER();
 					} else {
 						this.$tip(rs.message);
 					};
@@ -367,9 +368,8 @@ export default {
             })
 		},
 		reset(name){
-			// if(this.loadingSave == true) return;//保存时重置不可点击
-			// this.$refs[name].resetFields();
-			this.GET_CUSTOMER();
+			if(this.loadingSave == true) return;//保存时重置不可点击
+			this.$refs[name].resetFields();
 		}
 	}
 }
