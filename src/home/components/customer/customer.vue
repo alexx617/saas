@@ -35,7 +35,7 @@
 					<Table highlight-row width="10%" height="530" :columns="columns1" :data="content" @on-row-click="changeMenu"></Table>
 				</div>
 
-				<div class="ui-home-table-page" @click.stop="$closePullBox()">
+				<div class="ui-home-table-page">
 					<div class="ui-home-table-page-right">
 						<Page :total="page.totalElements" :current="page.number" show-elevator show-total @on-change="gopage"></Page>
 					</div>

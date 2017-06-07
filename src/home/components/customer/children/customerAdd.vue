@@ -193,7 +193,17 @@
 	
 				</Form>
 
-	
+				<div class="ui-customerAdd-btn-right">
+					<template v-if="list==='add'">
+						<div class="ui-customerAdd-save" @click="reset('formItem')">
+							<Button type="primary">重置</Button>
+						</div>
+					</template>
+					<div class="ui-customerAdd-save" @click="save('formItem')">
+						<Button :loading="loadingSave" type="primary">保存</Button>
+					</div>
+				</div>
+				
 			</div>
 	
 		</div>
